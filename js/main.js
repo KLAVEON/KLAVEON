@@ -13,7 +13,7 @@
   var cs=document.querySelector('.cs');
   if(cs){
     var idea=document.querySelector('.idea'),bar=idea&&idea.querySelector('.bar');
-    var open=function(o){idea.classList.toggle('is-open',o);bar.setAttribute('aria-expanded',o)};
+    var open=function(o){idea.classList.toggle('is-open',o);bar.setAttribute('aria-expanded',o);var ic=bar.querySelector('.ms');if(ic)ic.textContent=o?'remove':'add'};
     bar.addEventListener('click',function(){open(!idea.classList.contains('is-open'))});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')open(false)});
     var v=document.getElementById('v-visual'),r=document.getElementById('v-reading');

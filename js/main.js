@@ -22,4 +22,13 @@
     r.addEventListener('click',function(){setV('reading')});
     setV('visual');
   }
+
+  // Home: scroll to unlock, and contact form reveal
+  var kh=document.getElementById('keyhole');
+  if(kh&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var tick=function(){var r=kh.getBoundingClientRect(),vh=window.innerHeight;var p=Math.min(1,Math.max(0,(vh-r.top)/(vh*.8)));kh.style.transform='scale('+(0.86+0.14*p).toFixed(3)+')'};
+    window.addEventListener('scroll',tick,{passive:true});window.addEventListener('resize',tick);tick();
+  }else if(kh){kh.style.transform='none'}
+  var of=document.getElementById('open-form'),fm=document.getElementById('form');
+  if(of&&fm){of.addEventListener('click',function(e){e.preventDefault();fm.classList.add('open');var f=document.getElementById('n');if(f)f.focus()})}
 })();

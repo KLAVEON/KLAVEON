@@ -216,3 +216,68 @@ body.home .nav .links{display:none}
 .selw .top{flex-direction:column;align-items:flex-start;gap:16px}}
 @media(prefers-reduced-motion:reduce){.h-hero .ln>.in,.h-hero .intro,.h-hero .dash{animation:none;transform:none;opacity:1}.unlock{height:auto}.unlock .stage{position:relative;height:100vh;clip-path:none}}
 .pl h3+p{min-height:6.2em}
+/* Figma metrics pass (frame width 1773 = 100vw; 1px = .564vw) */
+body.home .nav{padding:3.2vw 3.67vw 0;align-items:center;height:9.5vw}
+.nav .brand{font-size:3vw;font-weight:600;letter-spacing:-.05em}
+.nav .links{top:3.6vw;gap:3.2vw}
+.nav .links a,.nav .right{font-size:max(13px,1.1vw)}
+.nav .right{position:relative;top:0}
+.h-hero{padding:9.7vw var(--pad) 0}
+.h-hero h1{font-size:10vw;line-height:1;border-bottom:1px solid var(--ink)}
+.h-hero .l1,.h-hero .l2,.h-hero .l3{display:flex;align-items:center;height:13.14vw;border-top:1px solid var(--ink)}
+.h-hero .l2{justify-content:space-between;gap:2vw}
+.h-hero .intro{flex:0 1 40%;font-size:max(12px,1.5vw);line-height:1.38;font-weight:300}
+.h-hero .dash{max-width:22%}
+.scrollcap{margin:5.8vw 0 2.1vw;font-size:max(11px,1.1vw)}
+.unlock{margin-top:0}
+.unlock .stage{clip-path:inset(max(0px,calc((100vh - (100vw - 2*var(--pad))/1.63)/2*(1 - var(--p,0)))) calc(var(--pad)*(1 - var(--p,0))))}
+.clients{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:7.3vw 0 0;padding:4.85vw var(--pad) 8vw;font-size:max(11px,.95vw)}
+.clients span{flex:none;text-align:left!important}
+.sec-title{font-size:6.6vw;line-height:1}
+.h-light{padding:20.6vw var(--pad) 13vw}
+.believe .cards{margin-top:9vw;gap:1.4vw}
+.believe .c{padding:7.6vw 5vw 3vw;min-height:34.4vw}
+.believe .c h3{font-size:2.15vw;line-height:1.1;margin:0 0 4vw;max-width:36vw}
+.believe .c p{font-size:1.25vw;line-height:1.4;max-width:36vw}
+.how .top p{font-size:max(12px,1.2vw);max-width:24vw;margin-top:5vw}
+.panel{margin-top:6vw;padding:2.2vw 2.76vw;gap:1.3vw}
+.step{min-height:18.4vw;padding:1.8vw}
+.step h3{font-size:2.9vw}.step p{font-size:1.2vw;line-height:1.35}
+.step .n{width:1.7vw;height:1.7vw;font-size:.8vw}
+.three .sub{font-size:max(12px,1.2vw);max-width:42vw;margin-top:5vw}
+.plans3{margin-top:6.4vw;gap:1.9vw}
+.pl{padding:3.9vw 2.7vw 0;min-height:0;aspect-ratio:.62;color:var(--ink)}
+.pl .row{height:5.6vw;align-items:flex-start}
+.pl .n{width:2.5vw;height:2.5vw;font-size:.95vw}
+.pl .wk{font-size:max(12px,1.1vw);color:var(--sand)}
+.pl hr.top{border:0;border-top:1px solid #cfcbc9;margin:0;width:100%}
+.pl h3{margin:3.8vw 0 .6vw;font-size:4.2vw;line-height:1.05}
+.pl h3+p{min-height:0;font-size:1.5vw;line-height:1.4}
+.pl hr:not(.top){margin:auto 0 2vw;border-top:1px solid #cfcbc9}
+.pl .for{font-size:1.2vw;line-height:1.35;padding-bottom:7.8vw}
+.pl:hover hr,.pl:focus-visible hr{border-color:#555}
+.selw .top a{font-size:max(12px,1.2vw)}
+.proj{margin:9vw 5.4vw 0}
+.proj .cap{font-size:1.45vw;margin-top:1.4vw}
+.proj .cap span:last-child{font-size:1.2vw;font-weight:400}
+.proj .sub{font-size:1.2vw;margin-top:.9vw}
+.cta2{padding-top:0}
+.cta2 .cols{padding-top:19.6vw}
+.cta2 h2{font-size:4.1vw;line-height:1.08;letter-spacing:-.05em;max-width:50vw}
+.cta2 .r{padding-left:0;margin-left:-4vw}
+.cta2 .r p{font-size:1.45vw;line-height:1.4;max-width:36vw}
+.cta2 .r a.go{font-size:max(12px,1.2vw);margin-top:5vw}
+.bigword{margin-top:28vw}
+@media(max-width:991px){.pl{aspect-ratio:auto;min-height:0;padding-bottom:0}.cta2 .r{margin-left:0}.believe .c h3,.believe .c p,.cta2 .r p,.cta2 h2{max-width:none}.proj{margin:9vw 0 0}}
+@media(max-width:767px){
+body.home .nav{height:auto;padding:16px}.nav .brand{font-size:22px}.nav .links{top:auto}
+.h-hero{padding-top:84px}.h-hero h1{font-size:10.4vw;border:0}.h-hero .l1,.h-hero .l2,.h-hero .l3{display:block;height:auto;border:0}
+.h-hero .l2{display:contents}
+.sec-title{font-size:11vw}.h-light{padding:72px var(--pad)}
+.believe .c{padding:32px 20px;min-height:0}.believe .c h3{font-size:20px;margin-bottom:24px}.believe .c p{font-size:15px}
+.step{min-height:200px}.step h3{font-size:28px}.step p{font-size:14px}.step .n{width:24px;height:24px;font-size:11px}
+.plans3{gap:12px}.pl{padding:24px 20px}.pl .row{height:auto;padding-bottom:20px}.pl .n{width:28px;height:28px;font-size:12px}.pl h3{font-size:34px;margin-top:48px}.pl h3+p{font-size:15px}.pl .for{font-size:14px;padding-bottom:24px}.pl hr:not(.top){margin-top:32px}
+.proj .cap{font-size:15px}.proj .cap span:last-child,.proj .sub{font-size:14px}
+.how .top p,.three .sub{font-size:14px;margin-top:0}
+.cta2 .cols{padding-top:64px}.cta2 h2{font-size:28px}.cta2 .r p{font-size:15px}.cta2 .r a.go{font-size:12px;margin-top:32px}.bigword{margin-top:72px}
+.clients{margin-top:48px;padding-bottom:32px}}

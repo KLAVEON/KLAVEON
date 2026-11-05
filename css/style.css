@@ -285,3 +285,19 @@ body.home .nav{height:auto;padding:16px}.nav .brand{font-size:22px}.nav .links{t
 .cta2 form,.cta2 form.open{max-height:none;opacity:1;visibility:visible;overflow:visible;margin-top:4vw;max-width:36vw;transition:none}
 @media(max-width:991px){.cta2 form,.cta2 form.open{max-width:none;margin-top:32px}}
 @media(min-width:992px){.bigword{margin-top:10vw}}
+/* Nav pass: one centre line for logo, links, CTA; Motto-style full-bleed hairlines */
+body.home .nav{height:9.7vw;padding:0 var(--pad);align-items:center}
+body.home .nav .brand{font-size:2.3vw;line-height:1;letter-spacing:-.045em;display:block}
+body.home .nav .links{top:50%;transform:translate(-50%,-50%);gap:3.2vw}
+body.home .nav .links a,body.home .nav .right{font-size:max(13px,1.15vw);line-height:1;padding:0;background:none;text-decoration:none;position:relative}
+body.home .nav .links a::after,body.home .nav .right::after{content:'';position:absolute;left:0;right:0;bottom:-.4em;height:1px;background:currentColor;transform-origin:left;transition:transform .3s}
+body.home .nav .links a::after{transform:scaleX(0)}
+body.home .nav .links a:hover::after,body.home .nav .links a:focus-visible::after{transform:scaleX(1)}
+body.home .nav .right{margin-left:auto}
+body.home .nav .right:hover::after{transform:scaleX(0)}
+.h-hero{padding:9.7vw 0 0}
+.h-hero h1{border-bottom:1px solid var(--fog)}
+.h-hero .l1,.h-hero .l2,.h-hero .l3{border-top:1px solid var(--fog);padding:0 var(--pad)}
+.scrollcap{padding:0 var(--pad)}
+.clients{border-color:var(--fog)}
+@media(max-width:767px){.h-hero{padding:84px var(--pad) 0}.h-hero .l1,.h-hero .l2,.h-hero .l3{padding:0}body.home .nav{height:auto;padding:16px}body.home .nav .brand{font-size:22px}.nav .links{transform:none}}

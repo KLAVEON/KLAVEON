@@ -25,20 +25,44 @@
 
   // Home
   if(document.body.classList.contains('home')){
-    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var unlock=document.getElementById('unlock'),stage=document.getElementById('stage'),hole=document.getElementById('hole'),arc=document.getElementById('arc');
-    var fld=document.querySelector('.unlock .field');var CX=800,CY=470,MAXS=90;
-    function setP(p){
-      stage.style.setProperty('--p',p.toFixed(4));if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.12)/.3)));
-      var e=Math.min(1,p/0.82),s=Math.exp(Math.log(MAXS)*e*e*(3-2*e)*1);
-      hole.setAttribute('transform','translate('+CX+' '+CY+') scale('+s.toFixed(3)+') translate('+(-CX)+' '+(-CY)+')');
-      arc.style.opacity=String(Math.max(0,1-p*2.2));
+    var unlock=document.getElementById('unlock'),stage=document.getElementById('stage'),dark=document.getElementById('dark'),arc=document.getElementById('arc'),door=document.getElementById('door');
+    var fld=document.querySelector('.unlock .field'),cr=document.getElementById('cr');
+    var W=0,H=0,top0=0,span=1,last=-1,ticking=false,pad=32;
+    function ease(t){return t*t*(3-2*t)}
+    function draw(p){
+      var e=ease(Math.min(1,p/0.85));
+      var cx=W/2,cy=H*0.5,r0=Math.max(10,W*0.0125);
+      var smax=Math.hypot(W,H)*1.15/r0;
+      var s=Math.exp(Math.log(smax)*e);
+      var r=r0*s,nw=r0*0.5*s,bot=r0*3.4*s;
+      var jy=Math.sqrt(r*r-nw*nw);
+      var ccy=cy-r0*s*0.55;                // circle centre sits above the optical centre
+      var x0=pad*(1-p)*(W/1440>1?W/1440:1),vin=Math.max(0,(H-(W-2*pad)/1.63)/2)*(1-p);
+      var d='M'+x0+' '+vin+'H'+(W-x0)+'V'+(H-vin)+'H'+x0+'Z'
+        +'M'+(cx-nw)+' '+(ccy+jy)+'A'+r+' '+r+' 0 1 1 '+(cx+nw)+' '+(ccy+jy)+'L'+(cx+nw*1.55)+' '+(ccy+jy+bot-jy*0.0)+'H'+(cx-nw*1.55)+'L'+(cx-nw)+' '+(ccy+jy)+'Z';
+      dark.setAttribute('d',d);cr.setAttribute('x',x0);cr.setAttribute('y',vin);cr.setAttribute('width',Math.max(0,W-2*x0));cr.setAttribute('height',Math.max(0,H-2*vin));
+      arc.setAttribute('cx',W*0.78);arc.setAttribute('cy',-H*0.1);arc.setAttribute('rx',W*0.62);arc.setAttribute('ry',H*0.85);
+      arc.style.opacity=String(Math.max(0,1-p*2.4));
+      if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.14)/.3)));
     }
+    function measure(){
+      W=stage.clientWidth;H=stage.clientHeight;
+      door.setAttribute('viewBox','0 0 '+W+' '+H);
+      top0=unlock.getBoundingClientRect().top+window.scrollY;span=Math.max(1,unlock.offsetHeight-H);
+      last=-1;frame();
+    }
+    function frame(){
+      ticking=false;
+      var p=Math.min(1,Math.max(0,(window.scrollY-top0)/span));
+      if(Math.abs(p-last)<0.0004)return;
+      last=p;draw(p);
+    }
+    function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
     if(unlock&&stage){
-      if(reduce){setP(1)}else{
-        var upd=function(){var r=unlock.getBoundingClientRect(),span=unlock.offsetHeight-window.innerHeight;setP(Math.min(1,Math.max(0,-r.top/span)))};
-        window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
-      }
+      measure();
+      window.addEventListener('scroll',onScroll,{passive:true});
+      if('ResizeObserver' in window){var ro=new ResizeObserver(function(){var w=stage.clientWidth;if(w!==W||Math.abs(stage.clientHeight-H)>120)measure()});ro.observe(stage)}else{window.addEventListener('resize',measure)}
+      window.addEventListener('load',measure);
     }
     // Nav: hide on scroll down, return on scroll up
     var nav=document.querySelector('.nav'),lastY=window.scrollY;

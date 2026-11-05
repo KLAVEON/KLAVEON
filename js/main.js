@@ -52,7 +52,7 @@
     function measure(){
       W=stage.clientWidth;H=stage.clientHeight;
       door.setAttribute('viewBox','0 0 '+W+' '+H);
-      unlock.style.marginTop=(-Math.max(0,(H-panelH())/2-(W<768?60:56)))+'px';
+      unlock.style.marginTop=((W<768?108:100)-(H-panelH())/2)+'px';
       top0=unlock.getBoundingClientRect().top+window.scrollY;span=Math.max(1,unlock.offsetHeight-H);
       last=-1;frame();
     }

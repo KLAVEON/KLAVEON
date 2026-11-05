@@ -54,10 +54,10 @@
     function frame(){
       ticking=false;
       var p=Math.min(1,Math.max(0,(window.scrollY-top0)/span));
-      if(Math.abs(p-last)<0.0004)return;
+      if(Math.abs(p-last)<0.001&&p>0&&p<1)return;
       last=p;draw(p);
     }
-    function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+    function onScroll(){frame()}
     if(unlock&&stage){
       measure();
       window.addEventListener('scroll',onScroll,{passive:true});
@@ -66,7 +66,7 @@
     }
     // Nav: hide on scroll down, return on scroll up
     var nav=document.querySelector('.nav'),lastY=window.scrollY;
-    window.addEventListener('scroll',function(){var y=window.scrollY;if(nav){nav.classList.toggle('is-hidden',y>lastY&&y>160)}lastY=y},{passive:true});
+    window.addEventListener('scroll',function(){var y=window.scrollY;if(nav){nav.classList.toggle('is-hidden',y>lastY&&y>160);nav.classList.toggle('is-solid',y>40)}lastY=y},{passive:true});
     // Process panel: the step under the pointer or focus is active
     var steps=[].slice.call(document.querySelectorAll('.panel .step'));
     steps.forEach(function(st){st.setAttribute('tabindex','0');['mouseenter','focus'].forEach(function(ev){st.addEventListener(ev,function(){steps.forEach(function(o){o.classList.toggle('is-active',o===st)})})})});

@@ -305,3 +305,9 @@ body.home .nav .right:hover::after{transform:scaleX(0)}
 .unlock .stage{clip-path:none!important;height:100vh;height:100svh;background:var(--bg);contain:layout paint}
 .unlock svg.door{position:absolute;left:0;top:0;width:100%;height:100%}
 @media(prefers-reduced-motion:reduce){.unlock{height:320vh!important}.unlock .stage{position:sticky!important;height:100vh;height:100svh}}
+/* Mobile performance: no blend-mode on the fixed nav, own compositor layers for the unlock */
+body.home .nav{mix-blend-mode:normal;color:var(--ink);background:transparent;transition:transform .45s cubic-bezier(.2,.7,.2,1),background-color .25s}
+body.home .nav.is-solid{background:var(--bg);box-shadow:0 1px 0 var(--fog)}
+.unlock svg.door{will-change:transform;transform:translateZ(0)}
+.unlock .field{will-change:opacity}
+.mq div{will-change:transform}

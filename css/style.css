@@ -282,3 +282,6 @@ body.home .nav{height:auto;padding:16px}.nav .brand{font-size:22px}.nav .links{t
 .cta2 .cols{padding-top:64px}.cta2 h2{font-size:28px}.cta2 .r p{font-size:15px}.cta2 .r a.go{font-size:12px;margin-top:32px}.bigword{margin-top:72px}
 .clients{margin-top:48px;padding-bottom:32px}}
 @media(min-width:992px){.cta2 .cols{grid-template-columns:57.5% 1fr;gap:0}.cta2 .r{margin-left:0}.cta2 h2{max-width:48vw}}
+.cta2 form,.cta2 form.open{max-height:none;opacity:1;visibility:visible;overflow:visible;margin-top:4vw;max-width:36vw;transition:none}
+@media(max-width:991px){.cta2 form,.cta2 form.open{max-width:none;margin-top:32px}}
+@media(min-width:992px){.bigword{margin-top:10vw}}

@@ -58,6 +58,6 @@
     }
     // Contact form
     var of=document.getElementById('open-form'),fm=document.getElementById('form');
-    if(of&&fm){of.addEventListener('click',function(e){e.preventDefault();fm.classList.add('open');of.setAttribute('aria-expanded','true');var f=document.getElementById('n');if(f)setTimeout(function(){f.focus()},350)})}
+    if(of&&fm){of.addEventListener('click',function(e){e.preventDefault();fm.scrollIntoView({behavior:'smooth',block:'center'});var f=document.getElementById('n');if(f)setTimeout(function(){f.focus({preventScroll:true})},500)})}
   }
 })();

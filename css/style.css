@@ -321,3 +321,5 @@ body.home .nav.is-solid{background:var(--bg);box-shadow:0 1px 0 var(--fog)}
 .unlock .field .svc{pointer-events:auto}
 .unlock .stage .scrollcap{top:0;color:#f2f2f2;font-size:max(11px,1vw)}
 @media(max-width:767px){.unlock .stage .scrollcap{top:0;font-size:11px}}
+.unlock .stage .scrollcap{color:var(--ink);font-size:max(11px,1.05vw);line-height:1}
+@media(max-width:767px){.unlock .stage .scrollcap{font-size:12px}}

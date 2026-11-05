@@ -47,12 +47,12 @@
       arc.setAttribute('cx',x0+(W-2*x0)*0.78);arc.setAttribute('cy',y0-ph*0.1);arc.setAttribute('rx',(W-2*x0)*(mob?0.8:0.62));arc.setAttribute('ry',ph*0.85);
       arc.style.opacity=String(Math.max(0,1-p*2.4));
       if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.14)/.3)));
-      if(cap){cap.style.opacity=String(Math.max(0,1-p*7));cap.style.transform='translateY('+(y1-(mob?44:52))+'px)'}
+      if(cap){cap.style.opacity=String(Math.max(0,1-p*7));cap.style.transform='translateY('+(Math.max(0,y0-(mob?34:38)))+'px)'}
     }
     function measure(){
       W=stage.clientWidth;H=stage.clientHeight;
       door.setAttribute('viewBox','0 0 '+W+' '+H);
-      unlock.style.marginTop=(-Math.max(0,(H-panelH())/2-24))+'px';
+      unlock.style.marginTop=(-Math.max(0,(H-panelH())/2-(W<768?60:56)))+'px';
       top0=unlock.getBoundingClientRect().top+window.scrollY;span=Math.max(1,unlock.offsetHeight-H);
       last=-1;frame();
     }

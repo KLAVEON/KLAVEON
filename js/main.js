@@ -26,24 +26,28 @@
   // Home
   if(document.body.classList.contains('home')){
     var unlock=document.getElementById('unlock'),stage=document.getElementById('stage'),dark=document.getElementById('dark'),arc=document.getElementById('arc'),door=document.getElementById('door');
-    var fld=document.querySelector('.unlock .field'),cr=document.getElementById('cr');
+    var fld=document.querySelector('.unlock .field'),cr=document.getElementById('cr'),cap=document.getElementById('cap');
     var W=0,H=0,top0=0,span=1,last=-1,ticking=false,pad=32;
     function ease(t){return t*t*(3-2*t)}
     function draw(p){
-      var e=ease(Math.min(1,p/0.85));
-      var cx=W/2,cy=H*0.5,r0=Math.max(10,W*0.0125);
+      var mob=W<768,e=ease(Math.min(1,p/0.85));
+      var T0=mob?52:64,B0=24;
+      var ph=Math.min(mob?(W-2*pad)*1.8:(W-2*pad)/1.63,H-T0-B0);
+      var inset=1-p,x0=pad*inset,y0=T0*inset,y1=H-(H-T0-ph)*inset;
+      var cx=W/2,cy=(y0+y1)/2;
+      var r0=Math.max(9,W*(mob?0.032:0.0125));
       var smax=Math.hypot(W,H)*1.15/r0;
       var s=Math.exp(Math.log(smax)*e);
       var r=r0*s,nw=r0*0.5*s,bot=r0*3.4*s;
       var jy=Math.sqrt(r*r-nw*nw);
-      var ccy=cy-r0*s*0.55;                // circle centre sits above the optical centre
-      var x0=pad*(1-p)*(W/1440>1?W/1440:1),vin=Math.max(0,(H-(W-2*pad)/1.63)/2)*(1-p);
-      var d='M'+x0+' '+vin+'H'+(W-x0)+'V'+(H-vin)+'H'+x0+'Z'
-        +'M'+(cx-nw)+' '+(ccy+jy)+'A'+r+' '+r+' 0 1 1 '+(cx+nw)+' '+(ccy+jy)+'L'+(cx+nw*1.55)+' '+(ccy+jy+bot-jy*0.0)+'H'+(cx-nw*1.55)+'L'+(cx-nw)+' '+(ccy+jy)+'Z';
-      dark.setAttribute('d',d);cr.setAttribute('x',x0);cr.setAttribute('y',vin);cr.setAttribute('width',Math.max(0,W-2*x0));cr.setAttribute('height',Math.max(0,H-2*vin));
-      arc.setAttribute('cx',W*0.78);arc.setAttribute('cy',-H*0.1);arc.setAttribute('rx',W*0.62);arc.setAttribute('ry',H*0.85);
+      var ccy=cy-r0*s*0.55;
+      var d='M'+(x0-2)+' '+(y0-2)+'H'+(W-x0+2)+'V'+(y1+2)+'H'+(x0-2)+'Z'
+        +'M'+(cx-nw)+' '+(ccy+jy)+'A'+r+' '+r+' 0 1 1 '+(cx+nw)+' '+(ccy+jy)+'L'+(cx+nw*1.55)+' '+(ccy+jy+bot)+'H'+(cx-nw*1.55)+'L'+(cx-nw)+' '+(ccy+jy)+'Z';
+      dark.setAttribute('d',d);cr.setAttribute('x',x0);cr.setAttribute('y',y0);cr.setAttribute('width',Math.max(0,W-2*x0));cr.setAttribute('height',Math.max(0,y1-y0));
+      arc.setAttribute('cx',x0+(W-2*x0)*0.78);arc.setAttribute('cy',y0-ph*0.1);arc.setAttribute('rx',(W-2*x0)*(mob?0.8:0.62));arc.setAttribute('ry',ph*0.85);
       arc.style.opacity=String(Math.max(0,1-p*2.4));
       if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.14)/.3)));
+      if(cap)cap.style.opacity=String(Math.max(0,1-p*7));
     }
     function measure(){
       W=stage.clientWidth;H=stage.clientHeight;

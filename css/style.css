@@ -311,3 +311,7 @@ body.home .nav.is-solid{background:var(--bg);box-shadow:0 1px 0 var(--fog)}
 .unlock svg.door{will-change:transform;transform:translateZ(0)}
 .unlock .field{will-change:opacity}
 .mq div{will-change:transform}
+/* Prompt lives inside the unlock stage, directly above the panel */
+.unlock .stage .scrollcap{position:absolute;left:0;right:0;top:20px;margin:0;padding:0 var(--pad);text-align:center;z-index:3;pointer-events:none;will-change:opacity;font-size:max(11px,1.1vw)}
+@media(max-width:767px){.unlock .stage .scrollcap{top:16px;font-size:12px}}
+.h-hero{padding-bottom:0}

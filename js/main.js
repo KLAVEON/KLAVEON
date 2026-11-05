@@ -29,12 +29,12 @@
     var fld=document.querySelector('.unlock .field'),cr=document.getElementById('cr'),cap=document.getElementById('cap');
     var W=0,H=0,top0=0,span=1,last=-1,ticking=false,pad=32;
     function ease(t){return t*t*(3-2*t)}
+    function panelH(){return Math.min((W-2*pad)/1.63,H-96)}
     function draw(p){
-      var mob=W<768,e=ease(Math.min(1,p/0.85));
-      var T0=mob?52:64,B0=24;
-      var ph=Math.min(mob?(W-2*pad)*1.8:(W-2*pad)/1.63,H-T0-B0);
-      var inset=1-p,x0=pad*inset,y0=T0*inset,y1=H-(H-T0-ph)*inset;
-      var cx=W/2,cy=(y0+y1)/2;
+      var e=ease(Math.min(1,p/0.85));
+      var ph=panelH(),inset=1-p,m=(H-ph)/2;
+      var x0=pad*inset,y0=m*inset,y1=H-m*inset;
+      var mob=W<768,cx=W/2,cy=(y0+y1)/2;
       var r0=Math.max(9,W*(mob?0.032:0.0125));
       var smax=Math.hypot(W,H)*1.15/r0;
       var s=Math.exp(Math.log(smax)*e);
@@ -47,11 +47,12 @@
       arc.setAttribute('cx',x0+(W-2*x0)*0.78);arc.setAttribute('cy',y0-ph*0.1);arc.setAttribute('rx',(W-2*x0)*(mob?0.8:0.62));arc.setAttribute('ry',ph*0.85);
       arc.style.opacity=String(Math.max(0,1-p*2.4));
       if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.14)/.3)));
-      if(cap)cap.style.opacity=String(Math.max(0,1-p*7));
+      if(cap){cap.style.opacity=String(Math.max(0,1-p*7));cap.style.transform='translateY('+(y1-(mob?44:52))+'px)'}
     }
     function measure(){
       W=stage.clientWidth;H=stage.clientHeight;
       door.setAttribute('viewBox','0 0 '+W+' '+H);
+      unlock.style.marginTop=(-Math.max(0,(H-panelH())/2-24))+'px';
       top0=unlock.getBoundingClientRect().top+window.scrollY;span=Math.max(1,unlock.offsetHeight-H);
       last=-1;frame();
     }

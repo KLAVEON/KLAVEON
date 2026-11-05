@@ -315,3 +315,9 @@ body.home .nav.is-solid{background:var(--bg);box-shadow:0 1px 0 var(--fog)}
 .unlock .stage .scrollcap{position:absolute;left:0;right:0;top:20px;margin:0;padding:0 var(--pad);text-align:center;z-index:3;pointer-events:none;will-change:opacity;font-size:max(11px,1.1vw)}
 @media(max-width:767px){.unlock .stage .scrollcap{top:16px;font-size:12px}}
 .h-hero{padding-bottom:0}
+/* Panel stays landscape; prompt sits on the panel; stage is see-through so it can tuck under the headline */
+.unlock{margin-top:0}
+.unlock .stage{background:transparent;pointer-events:none}
+.unlock .field .svc{pointer-events:auto}
+.unlock .stage .scrollcap{top:0;color:#f2f2f2;font-size:max(11px,1vw)}
+@media(max-width:767px){.unlock .stage .scrollcap{top:0;font-size:11px}}

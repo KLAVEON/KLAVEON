@@ -50,7 +50,7 @@
     function measure(){
       W=stage.clientWidth;H=stage.clientHeight;
       door.setAttribute('viewBox','0 0 '+W+' '+H);
-      capH=cap?cap.offsetHeight:16;unlock.style.marginTop=((W<768?112:144)-(H-panelH())/2)+'px';
+      capH=cap?cap.offsetHeight:16;unlock.style.marginTop=((W<768?112:Math.round(Math.max(120,Math.min(W*0.14,230))))-(H-panelH())/2)+'px';
       top0=unlock.getBoundingClientRect().top+window.scrollY;span=Math.max(1,unlock.offsetHeight-H);
       last=-1;frame();
     }

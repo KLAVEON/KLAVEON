@@ -68,8 +68,8 @@
       window.addEventListener('load',measure);
     }
     // Nav: hide on scroll down, return on scroll up
-    var nav=document.querySelector('.nav'),lastY=window.scrollY;
-    window.addEventListener('scroll',function(){var y=window.scrollY;if(nav){nav.classList.toggle('is-hidden',y>lastY&&y>160);nav.classList.toggle('is-solid',y>40)}lastY=y},{passive:true});
+    var nav=document.querySelector('.nav'),lastY=window.scrollY,mb=document.querySelector('.menu-btn');if(mb)mb.addEventListener('click',function(){var o=nav.classList.toggle('is-open');mb.setAttribute('aria-expanded',o?'true':'false')});
+    window.addEventListener('scroll',function(){var y=window.scrollY;if(nav){nav.classList.toggle('is-hidden',y>lastY&&y>160);nav.classList.toggle('is-solid',y>40);nav.classList.toggle('is-compact',y>window.innerWidth*0.05);if(y<=window.innerWidth*0.05){nav.classList.remove('is-open');mb&&mb.setAttribute('aria-expanded','false')}}lastY=y},{passive:true});
     // Process panel: the step under the pointer or focus is active
     var steps=[].slice.call(document.querySelectorAll('.panel .step'));
     steps.forEach(function(st){st.setAttribute('tabindex','0');['mouseenter','focus'].forEach(function(ev){st.addEventListener(ev,function(){steps.forEach(function(o){o.classList.toggle('is-active',o===st)})})})});

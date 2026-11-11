@@ -25,9 +25,9 @@
 
   // Home
   if(document.body.classList.contains('home')){
-    var unlock=document.getElementById('unlock'),stage=document.getElementById('stage'),dark=document.getElementById('dark'),arc=document.getElementById('arc'),door=document.getElementById('door');
+    var unlock=document.getElementById('unlock'),stage=document.getElementById('stage'),dark=document.getElementById('dark'),door=document.getElementById('door');
     var fld=document.querySelector('.unlock .field'),cr=document.getElementById('cr'),cap=document.getElementById('cap');
-    var W=0,H=0,top0=0,span=1,last=-1,ticking=false,pad=32;
+    var capH=16,W=0,H=0,top0=0,span=1,last=-1,ticking=false,pad=32;
     function ease(t){return t*t*(3-2*t)}
     function panelH(){return Math.min((W-2*pad)/1.63,H-96)}
     function draw(p){
@@ -44,15 +44,13 @@
       var d='M'+(x0-2)+' '+(y0-2)+'H'+(W-x0+2)+'V'+(y1+2)+'H'+(x0-2)+'Z'
         +'M'+(cx-nw)+' '+(ccy+jy)+'A'+r+' '+r+' 0 1 1 '+(cx+nw)+' '+(ccy+jy)+'L'+(cx+nw*1.55)+' '+(ccy+jy+bot)+'H'+(cx-nw*1.55)+'L'+(cx-nw)+' '+(ccy+jy)+'Z';
       dark.setAttribute('d',d);cr.setAttribute('x',x0);cr.setAttribute('y',y0);cr.setAttribute('width',Math.max(0,W-2*x0));cr.setAttribute('height',Math.max(0,y1-y0));
-      arc.setAttribute('cx',x0+(W-2*x0)*0.78);arc.setAttribute('cy',y0-ph*0.1);arc.setAttribute('rx',(W-2*x0)*(mob?0.8:0.62));arc.setAttribute('ry',ph*0.85);
-      arc.style.opacity=String(Math.max(0,1-p*2.4));
       if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.14)/.3)));
-      if(cap){cap.style.opacity=String(Math.max(0,1-p*7));cap.style.transform='translateY('+(Math.max(0,y0-(mob?34:38)))+'px)'}
+      if(cap){cap.style.opacity=String(Math.max(0,1-p*7));cap.style.transform='translateY('+Math.max(0,y0-(mob?32:40)-capH)+'px)'}
     }
     function measure(){
       W=stage.clientWidth;H=stage.clientHeight;
       door.setAttribute('viewBox','0 0 '+W+' '+H);
-      unlock.style.marginTop=((W<768?108:100)-(H-panelH())/2)+'px';
+      capH=cap?cap.offsetHeight:16;unlock.style.marginTop=((W<768?112:144)-(H-panelH())/2)+'px';
       top0=unlock.getBoundingClientRect().top+window.scrollY;span=Math.max(1,unlock.offsetHeight-H);
       last=-1;frame();
     }

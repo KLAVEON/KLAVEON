@@ -106,6 +106,7 @@ footer .word{font-size:clamp(64px,18vw,320px);line-height:.85;letter-spacing:-.0
 .idea .btn::before,.idea .btn::after{display:none}
 .idea .btn{display:flex;align-items:center;justify-content:center}
 .idea .btn .ms{font-size:28px;transition:transform .25s}
+@font-face{font-family:'Sora Local';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/sora-latin-700-normal.woff2') format('woff2')}
 /* Home, from updated Figma desktop design. Sora throughout. */
 body.home{background:var(--bg)}
 body.home .nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;padding:22px var(--pad);font-size:14px;text-transform:none;letter-spacing:0;color:#fff;mix-blend-mode:difference;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
@@ -323,3 +324,14 @@ body.home .nav.is-solid{background:var(--bg);box-shadow:0 1px 0 var(--fog)}
 @media(max-width:767px){.unlock .stage .scrollcap{top:0;font-size:11px}}
 .unlock .stage .scrollcap{color:var(--ink);font-size:max(11px,1.05vw);line-height:1}
 @media(max-width:767px){.unlock .stage .scrollcap{font-size:12px}}
+
+/* Round 3: logo hover, one step heavier type, spacing system (8px grid: 8 16 24 32 40 64 96 112 144) */
+body.home .nav .brand,body.home .nav .brand:hover,body.home .nav .brand:focus-visible{text-decoration:none;font-weight:700}
+body.home .nav .links a,body.home .nav .right{font-weight:500}
+@media(min-width:768px){.h-hero h1{font-size:8.8vw}}
+@media(min-width:768px){.h-hero .l1,.h-hero .l2,.h-hero .l3{height:14vw}.h-hero .intro{font-weight:400;font-size:max(13px,1.45vw);line-height:1.55;flex:0 1 34%}}
+@media(max-width:767px){
+.h-hero{padding-top:112px}
+.h-hero h1{font-size:10.4vw}
+.h-hero .intro{font-weight:400;font-size:16px;line-height:1.55;margin:32px 0 0}
+}

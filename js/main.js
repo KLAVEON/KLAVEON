@@ -85,6 +85,10 @@
     }
     // Contact form
     var of=document.getElementById('open-form'),fm=document.getElementById('form');
+    if(fm){fm.addEventListener('submit',function(e){e.preventDefault();var msg=document.getElementById('fmsg'),bad=[].slice.call(fm.querySelectorAll('[required]')).filter(function(x){x.removeAttribute('aria-invalid');return !x.value.trim()||(x.type==='email'&&!/^\S+@\S+\.\S+$/.test(x.value))});
+      if(bad.length){bad.forEach(function(x){x.setAttribute('aria-invalid','true')});msg.className='fmsg err';msg.textContent='That did not send. Check the marked fields and try again.';bad[0].focus();return}
+      var b=fm.querySelector('.submit');b.disabled=true;msg.className='fmsg';msg.textContent='';
+      fetch('https://formsubmit.co/ajax/klaveonfoundry@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(fm)}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(){fm.reset();msg.className='fmsg ok';msg.textContent='Received. KLAVEON reviews every submission within 48 hours.';b.disabled=false}).catch(function(){msg.className='fmsg err';msg.textContent='That did not send. Check the marked fields and try again.';b.disabled=false})})}
     if(of&&fm){of.addEventListener('click',function(e){e.preventDefault();fm.scrollIntoView({behavior:'smooth',block:'center'});var f=document.getElementById('n');if(f)setTimeout(function(){f.focus({preventScroll:true})},500)})}
   }
 })();

@@ -472,3 +472,49 @@ body.home .nav .brand{margin-left:-.07em}
 .mstep h2{font-size:34px}.mstep p{font-size:16px}
 .mdiag{height:420vh}
 }
+
+/* Round 9: Motto-style statement rows, method tile, programme cards */
+.bel2{padding:12vw var(--pad) 4vw}
+.bel2 .sec-title{margin:0 0 9vw}
+.brow{display:grid;grid-template-columns:42% 1fr;gap:var(--pad);padding:3.4vw 0 7vw;border-top:1px solid var(--fog);margin:0 calc(var(--pad)*-1);padding-left:var(--pad);padding-right:var(--pad)}
+.bl{display:flex;gap:2.4vw;font-size:max(12px,.95vw);font-weight:500}.bl span:last-child{opacity:.55}
+.br h3{margin:0;max-width:17em;font-size:max(24px,3vw);line-height:1.12;font-weight:600;letter-spacing:-.035em}
+.br p{margin:3vw 0 0;max-width:30em;font-size:max(15px,1.2vw);line-height:1.5;font-weight:400}
+.how2{padding:9vw var(--pad) 8vw;border-top:1px solid var(--fog)}
+.hgrid{display:grid;grid-template-columns:42% 1fr;gap:var(--pad);align-items:stretch}
+.hm{display:flex;flex-direction:column;justify-content:space-between;gap:48px}
+.hm .cap{font-size:max(12px,.95vw);font-weight:500}
+.hm h2{margin:0;max-width:11em;font-size:max(30px,4vw);line-height:1.05;font-weight:600;letter-spacing:-.045em}
+.hm p{margin:0;max-width:22em;font-size:max(15px,1.35vw);line-height:1.4;font-weight:500}
+.hm .tlink{margin:0;align-self:flex-start}
+.htile{position:relative;display:block;background:#161617;aspect-ratio:1.25;overflow:hidden;color:#f2f2f2;text-decoration:none}
+.ho{position:absolute;left:50%;top:50%;width:min(64%,86vh);aspect-ratio:1;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.22);border-radius:50%;animation:hspin 60s linear infinite}
+.hn{position:absolute;inset:0;transform:rotate(calc(var(--a)*1deg))}
+.hn u{position:absolute;left:50%;top:0;width:0;height:0;animation:hctr 60s linear infinite}
+.hn i{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#f2f2f2}
+.hn b{position:absolute;left:16px;top:-.65em;font-size:max(11px,.9vw);font-weight:500;white-space:nowrap}
+.hc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:max(16px,1.9vw);font-weight:600;letter-spacing:-.04em;line-height:1.1;text-transform:uppercase}
+.htile:hover .ho,.htile:hover .hn u{animation-duration:24s}
+@keyframes hspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes hctr{from{transform:rotate(calc(var(--a)*-1deg))}to{transform:rotate(calc(var(--a)*-1deg - 360deg))}}
+.hsteps{list-style:none;margin:8vw 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--pad)}
+.hsteps li{border-top:1px solid var(--fog);padding-top:1.6vw}
+.hsteps .no{font-size:max(12px,.95vw);font-weight:500;opacity:.55}
+.hsteps h3{margin:2.4vw 0 1vw;font-size:max(22px,2.4vw);line-height:1;font-weight:600;letter-spacing:-.045em}
+.hsteps p{margin:0;max-width:18em;font-size:max(13px,1.05vw);line-height:1.45;font-weight:400}
+.plans3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;margin-top:6vw}
+.pc{background:#fff;border-radius:6px;padding:2vw 2vw 1.8vw;display:flex;flex-direction:column;min-height:30vw;color:var(--ink);text-decoration:none;transition:background .4s cubic-bezier(.2,.7,.2,1),color .4s}
+.pc h3{margin:0;font-size:max(24px,2.4vw);line-height:1;font-weight:500;letter-spacing:-.04em}
+.pc .lab{margin:6vw 0 0;font-size:max(12px,.95vw);font-weight:600}
+.pc .ds{margin:.8vw 0 0;font-size:max(14px,1.1vw);line-height:1.45;font-weight:400;max-width:24em}
+.pc .fr{margin:1.6vw 0 0;font-size:max(12px,.9vw);line-height:1.45;font-weight:400;opacity:.6;max-width:24em}
+.pc .pgo{margin-top:auto;padding-top:3vw;align-self:flex-start;font-size:max(13px,1.05vw);font-weight:500;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:3px;transition:background-size .3s}
+.pc:hover,.pc:focus-visible{background:var(--ink);color:#fff}.pc:hover .pgo{background-size:0 1px}
+.pnote{margin:3vw 0 0}
+@media(max-width:991px){
+.brow,.hgrid{grid-template-columns:1fr;gap:20px}.brow{padding-top:24px;padding-bottom:56px}.bel2{padding-top:72px}.bel2 .sec-title{margin-bottom:56px}
+.bl{gap:16px}.br h3{font-size:26px}.br p{margin-top:20px;font-size:15px}
+.how2{padding:64px var(--pad) 56px}.hm h2{font-size:32px}.hm p{font-size:16px}.htile{aspect-ratio:1}.ho{width:66%}
+.hsteps{grid-template-columns:1fr 1fr;gap:32px 16px;margin-top:48px}.hsteps h3{font-size:24px;margin:16px 0 8px}.hsteps p{font-size:14px}
+.plans3{grid-template-columns:1fr;gap:12px;margin-top:40px}.pc{min-height:0;padding:24px 20px}.pc h3{font-size:30px}.pc .lab{margin-top:48px;font-size:13px}.pc .ds{font-size:15px;margin-top:8px}.pc .fr{font-size:13px;margin-top:16px}.pc .pgo{font-size:14px;padding-top:32px}
+}

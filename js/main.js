@@ -13,7 +13,7 @@
   var cs=document.querySelector('.cs');
   if(cs){
     var idea=document.querySelector('.idea'),bar=idea&&idea.querySelector('.bar');
-    var open=function(o){idea.classList.toggle('is-open',o);bar.setAttribute('aria-expanded',o);var ic=bar.querySelector('.ms');if(ic)ic.textContent=o?'remove':'add'};
+    var open=function(o){idea.classList.toggle('is-open',o);bar.setAttribute('aria-expanded',o);var ic=bar.querySelector('.mstep');if(ic)ic.textContent=o?'remove':'add'};
     bar.addEventListener('click',function(){open(!idea.classList.contains('is-open'))});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')open(false)});
     var v=document.getElementById('v-visual'),r=document.getElementById('v-reading');
@@ -91,4 +91,23 @@
       fetch('https://formsubmit.co/ajax/klaveonfoundry@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(fm)}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(){fm.reset();msg.className='fmsg ok';msg.textContent='Received. KLAVEON reviews every submission within 48 hours.';b.disabled=false}).catch(function(){msg.className='fmsg err';msg.textContent='That did not send. Check the marked fields and try again.';b.disabled=false})})}
     if(of&&fm){of.addEventListener('click',function(e){e.preventDefault();fm.scrollIntoView({behavior:'smooth',block:'center'});var f=document.getElementById('n');if(f)setTimeout(function(){f.focus({preventScroll:true})},500)})}
   }
+})();
+(function(){
+  var md=document.getElementById('mdiag');if(!md)return;
+  var stage=md.querySelector('.mstage'),orbit=md.querySelector('.orbit'),nodes=[].slice.call(md.querySelectorAll('.nd')),items=[].slice.call(md.querySelectorAll('.mstep'));
+  var N=nodes.length,cur=-1,ang=[0,90,180,270],base=0;
+  function R(){return orbit.clientWidth/2}
+  function layout(rot){nodes.forEach(function(n,i){n.style.transform='rotate('+ang[i]+'deg) translateY(-'+R()+'px) rotate('+(-(ang[i]+rot))+'deg)'});orbit.style.transform='rotate('+rot+'deg)'}
+  function set(i){if(i===cur)return;var first=cur<0;cur=i;
+    if(first){nodes.forEach(function(n){n.style.transition='none'});orbit.style.transition='none'}
+    layout(-ang[i]);
+    if(first){void orbit.offsetWidth;nodes.forEach(function(n){n.style.transition=''});orbit.style.transition=''}
+    nodes.forEach(function(n,k){n.classList.toggle('on',k===i)});items.forEach(function(m,k){m.classList.toggle('on',k===i)})}
+  function idx(){var r=md.getBoundingClientRect(),span=md.offsetHeight-window.innerHeight,p=Math.min(1,Math.max(0,-r.top/Math.max(1,span)));return Math.min(N-1,Math.floor(p*N*0.999))}
+  function go(i){var span=md.offsetHeight-window.innerHeight,top=md.getBoundingClientRect().top+window.scrollY;window.scrollTo({top:top+span*((i+.5)/N),behavior:'smooth'})}
+  var t=false;function onS(){if(t)return;t=true;requestAnimationFrame(function(){t=false;set(idx())})}
+  window.addEventListener('scroll',onS,{passive:true});window.addEventListener('resize',function(){var c=cur;cur=-1;set(c<0?0:c)});
+  nodes.forEach(function(n,i){n.addEventListener('click',function(){go(i)})});
+  items.forEach(function(m,i){var a=m.querySelector('.nx');a.addEventListener('click',function(e){if(i<N-1){e.preventDefault();go(i+1)}else{a.setAttribute('href','../index.html#contact')}})});
+  set(idx());
 })();

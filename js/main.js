@@ -13,7 +13,7 @@
   var cs=document.querySelector('.cs');
   if(cs){
     var idea=document.querySelector('.idea'),bar=idea&&idea.querySelector('.bar');
-    var open=function(o){idea.classList.toggle('is-open',o);bar.setAttribute('aria-expanded',o);var ic=bar.querySelector('.mstep');if(ic)ic.textContent=o?'remove':'add'};
+    var open=function(o){idea.classList.toggle('is-open',o);bar.setAttribute('aria-expanded',o)};
     bar.addEventListener('click',function(){open(!idea.classList.contains('is-open'))});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')open(false)});
     var v=document.getElementById('v-visual'),r=document.getElementById('v-reading');
@@ -54,35 +54,40 @@
       top0=unlock.getBoundingClientRect().top+window.scrollY;span=Math.max(1,unlock.offsetHeight-H);
       last=-1;frame();
     }
-    function frame(){
-      ticking=false;
-      var p=Math.min(1,Math.max(0,(window.scrollY-top0)/span));
+    function frame(y){
+      var p=Math.min(1,Math.max(0,((y===undefined?window.scrollY:y)-top0)/span));
       if(Math.abs(p-last)<0.001&&p>0&&p<1)return;
       last=p;draw(p);
     }
-    function onScroll(){frame()}
     if(unlock&&stage){
       measure();
-      window.addEventListener('scroll',onScroll,{passive:true});
       if('ResizeObserver' in window){var ro=new ResizeObserver(function(){var w=stage.clientWidth;if(w!==W||Math.abs(stage.clientHeight-H)>120)measure()});ro.observe(stage)}else{window.addEventListener('resize',measure)}
       window.addEventListener('load',measure);
+      if(document.fonts&&document.fonts.ready)document.fonts.ready.then(measure);
     }
     // Nav: hide on scroll down, return on scroll up
     var nav=document.querySelector('.nav'),lastY=window.scrollY,mb=document.querySelector('.menu-btn');if(mb)mb.addEventListener('click',function(){var o=nav.classList.toggle('is-open');mb.setAttribute('aria-expanded',o?'true':'false')});
-    window.addEventListener('scroll',function(){var y=window.scrollY;if(nav){nav.classList.toggle('is-hidden',y>lastY&&y>160);nav.classList.toggle('is-solid',y>40);nav.classList.toggle('is-compact',y>window.innerWidth*0.05);if(y<=window.innerWidth*0.05){nav.classList.remove('is-open');mb&&mb.setAttribute('aria-expanded','false')}}lastY=y},{passive:true});
+    function navState(y){if(!nav)return;var h=y>lastY&&y>160,s=y>40,c=y>window.innerWidth*0.05;if(h!==nav._h){nav.classList.toggle('is-hidden',h);nav._h=h}if(s!==nav._s){nav.classList.toggle('is-solid',s);nav._s=s}if(c!==nav._c){nav.classList.toggle('is-compact',c);nav._c=c}if(!c&&nav._o){nav.classList.remove('is-open');mb&&mb.setAttribute('aria-expanded','false');nav._o=false}lastY=y}
+    if(mb)mb.addEventListener('click',function(){nav._o=nav.classList.contains('is-open')});
+    var q=false;function tick(){q=false;var y=window.scrollY;navState(y);if(unlock&&stage)frame(y)}
+    window.addEventListener('scroll',function(){if(!q){q=true;requestAnimationFrame(tick)}},{passive:true});
+    tick();
     // Process panel: the step under the pointer or focus is active
     var steps=[].slice.call(document.querySelectorAll('.panel .step'));
     steps.forEach(function(st){st.setAttribute('tabindex','0');['mouseenter','focus'].forEach(function(ev){st.addEventListener(ev,function(){steps.forEach(function(o){o.classList.toggle('is-active',o===st)})})})});
     if(steps[0])steps[0].classList.add('is-active');
     // Cursor label over the project
-    var cur=document.getElementById('cur');
+    var cur=document.getElementById('cur'),mx=0,my=0,mq=false;
     if(cur&&window.matchMedia('(hover: hover)').matches){
+      var place=function(){mq=false;cur.style.setProperty('--cx',mx+'px');cur.style.setProperty('--cy',my+'px')};
       document.querySelectorAll('[data-cur]').forEach(function(el){
-        el.addEventListener('mouseenter',function(){cur.textContent=el.getAttribute('data-cur');cur.classList.add('on')});
+        el.addEventListener('mouseenter',function(e){mx=e.clientX;my=e.clientY;place();cur.textContent=el.getAttribute('data-cur');cur.classList.add('on')});
         el.addEventListener('mouseleave',function(){cur.classList.remove('on')});
-        el.addEventListener('mousemove',function(e){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'});
+        el.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;if(!mq){mq=true;requestAnimationFrame(place)}},{passive:true});
       });
     }
+    // Pause looping animations when offscreen
+    if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('is-off',!e.isIntersecting)})},{rootMargin:'100px'});document.querySelectorAll('.htile,.mq').forEach(function(el){io.observe(el)})}
     // Contact form
     var of=document.getElementById('open-form'),fm=document.getElementById('form');
     if(fm){fm.addEventListener('submit',function(e){e.preventDefault();var msg=document.getElementById('fmsg'),bad=[].slice.call(fm.querySelectorAll('[required]')).filter(function(x){x.removeAttribute('aria-invalid');return !x.value.trim()||(x.type==='email'&&!/^\S+@\S+\.\S+$/.test(x.value))});

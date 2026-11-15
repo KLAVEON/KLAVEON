@@ -1,13 +1,44 @@
 (function(){
   function store(k,v){try{if(v===undefined)return sessionStorage.getItem(k);sessionStorage.setItem(k,v)}catch(e){return null}}
-  // Work page: grid / list
+  // Work page: grid / explore / list
   var work=document.querySelector('.work');
   if(work){
-    var g=document.getElementById('v-grid'),l=document.getElementById('v-list');
-    var setW=function(m){var list=m==='list';work.classList.toggle('is-list',list);g.classList.toggle('is-active',!list);l.classList.toggle('is-active',list);store('kl-work-view',m)};
-    g.addEventListener('click',function(){setW('grid')});
-    l.addEventListener('click',function(){setW('list')});
-    setW(store('kl-work-view')||'grid');
+    var tg=document.querySelector('.work-tg'),ind=tg.querySelector('.ind');
+    var btns={grid:document.getElementById('v-grid'),explore:document.getElementById('v-explore'),list:document.getElementById('v-list')};
+    var cur=null;
+    var place=function(){var b=btns[cur];ind.style.left=b.offsetLeft+'px';ind.style.right=(tg.clientWidth-b.offsetLeft-b.offsetWidth)+'px'};
+    var order=['grid','explore','list'];
+    var setW=function(m,first){
+      if(m===cur)return;var prev=cur;cur=m;
+      Object.keys(btns).forEach(function(k){btns[k].classList.toggle('is-active',k===m)});
+      if(first){ind.classList.add('sync');place();void ind.offsetWidth;ind.classList.remove('sync')}
+      else{ind.classList.remove('sync','to-l','to-r');ind.classList.add(order.indexOf(m)>order.indexOf(prev)?'to-r':'to-l');place()}
+      work.setAttribute('data-v',m);window.scrollTo(0,0);store('kl-work-view',m);
+    };
+    order.forEach(function(k){btns[k].addEventListener('click',function(){setW(k)})});
+    setW(store('kl-work-view')||'grid',true);
+    window.addEventListener('resize',place);
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(place);
+    // grid: arrow follows cursor
+    document.querySelectorAll('.card').forEach(function(c){var a=c.querySelector('.arrow'),w=c.querySelector('.imgw');
+      w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();a.style.left=(e.clientX-r.left)+'px';a.style.top=(e.clientY-r.top)+'px'})});
+    // explore: depth drift with the pointer
+    var ex=document.querySelector('.explore'),items=[].slice.call(ex.querySelectorAll('a')),tx=0,ty=0,cx=0,cy=0,run=false;
+    var loop=function(){cx+=(tx-cx)*.07;cy+=(ty-cy)*.07;
+      items.forEach(function(it){var d=+it.getAttribute('data-d');it.style.transform='translate3d('+(cx*d*-60).toFixed(1)+'px,'+(cy*d*-40).toFixed(1)+'px,0)'});
+      if(Math.abs(tx-cx)>.001||Math.abs(ty-cy)>.001)requestAnimationFrame(loop);else run=false};
+    ex.addEventListener('mousemove',function(e){tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;if(!run){run=true;requestAnimationFrame(loop)}});
+    // filter pill
+    var fl=document.querySelector('.filter'),fb=fl.querySelector('.bar'),lab=document.getElementById('f-label');
+    var fo=function(o){fl.classList.toggle('is-open',o);fb.setAttribute('aria-expanded',o)};
+    fb.addEventListener('click',function(){fo(!fl.classList.contains('is-open'))});
+    document.addEventListener('click',function(e){if(!fl.contains(e.target))fo(false)});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')fo(false)});
+    fl.querySelectorAll('.menu button').forEach(function(b){b.addEventListener('click',function(){
+      var f=b.getAttribute('data-f'),n=0;
+      fl.querySelectorAll('.menu button').forEach(function(x){x.classList.toggle('is-on',x===b)});
+      document.querySelectorAll('.card').forEach(function(c){var ok=!f||c.getAttribute('data-cat')===f;c.style.display=ok?'':'none';if(ok)n++});
+      lab.textContent=(f||'All Projects')+' ('+n+')';fo(false)})});
   }
   // Case study: Defining Idea card and Visual / Reading view
   var cs=document.querySelector('.cs');

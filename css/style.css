@@ -723,3 +723,6 @@ body:not(.home) .nav .links{top:50%;transform:translate(-50%,-50%)}
 .lc-pin{padding-top:128px}@media(max-width:991px){.lc-pin{padding-top:96px}}
 
 #lcp{stroke:rgba(33,33,34,.12);stroke-width:1}
+
+.lc-nav li{cursor:pointer}.lc-nav li:hover{color:var(--ink)}.lc-nav li:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+#stages-wrap{display:none}

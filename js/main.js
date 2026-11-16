@@ -115,7 +115,7 @@
       if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.14)/.3)));
       if(cap){cap.style.opacity=String(Math.max(0,1-p*7));cap.style.transform='translateY('+Math.max(0,y0-(mob?32:40)-capH)+'px)'}
     }
-    function measure(){
+    function measure(){pad=window.innerWidth<768?16:32;
       W=stage.clientWidth;H=stage.clientHeight;
       door.setAttribute('viewBox','0 0 '+W+' '+H);
       capH=cap?cap.offsetHeight:16;unlock.style.marginTop=((W<768?112:Math.round(Math.max(120,Math.min(W*0.14,230))))-(H-panelH())/2)+'px';
@@ -137,7 +137,8 @@
     var nav=document.querySelector('.nav'),lastY=window.scrollY,mb=document.querySelector('.menu-btn');if(mb)mb.addEventListener('click',function(){var o=nav.classList.toggle('is-open');mb.setAttribute('aria-expanded',o?'true':'false')});
     function navState(y){if(!nav)return;var h=y>lastY&&y>160,s=y>40,c=y>window.innerWidth*0.05;if(h!==nav._h){nav.classList.toggle('is-hidden',h);nav._h=h}if(s!==nav._s){nav.classList.toggle('is-solid',s);nav._s=s}if(c!==nav._c){nav.classList.toggle('is-compact',c);nav._c=c}if(!c&&nav._o){nav.classList.remove('is-open');mb&&mb.setAttribute('aria-expanded','false');nav._o=false}lastY=y}
     if(mb)mb.addEventListener('click',function(){nav._o=nav.classList.contains('is-open')});
-    var q=false;function tick(){q=false;var y=window.scrollY;navState(y);if(unlock&&stage)frame(y)}
+    function navDark(){if(!nav||!document.elementsFromPoint)return;var els=document.elementsFromPoint(Math.round(innerWidth/2),Math.round(nav.offsetHeight/2)),t=null;for(var i=0;i<els.length;i++){if(!nav.contains(els[i])){t=els[i];break}}var d=!!(t&&t.closest&&t.closest('.unlock,.cta2'));if(d!==nav._d){nav.classList.toggle('on-dark',d);nav._d=d}}
+    var q=false;function tick(){q=false;var y=window.scrollY;navState(y);navDark();if(unlock&&stage)frame(y)}
     window.addEventListener('scroll',function(){if(!q){q=true;requestAnimationFrame(tick)}},{passive:true});
     tick();
     // Process panel: the step under the pointer or focus is active

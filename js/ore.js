@@ -7,7 +7,7 @@
     pts([1,.96,1,.96,1,.96,1,.96,1,.96,1,.96,1,.96,1,.96]),
     pts([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1])
   ];
-  var smooth=[0,0,.75,1],col=[[139,134,128],[110,106,102],[70,68,66],[33,33,34]];
+  var smooth=[0,0,.75,1],col=[[139,134,128],[176,172,168],[218,216,214],[255,255,255]];
   var path=document.getElementById('lcp'),hl=document.getElementById('lcf'),cuts=document.getElementById('lcc');
   function lerp(a,b,t){return a+(b-a)*t}
   function build(P,s){

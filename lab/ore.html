@@ -10,7 +10,7 @@
 .lc-nav li{display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--fog);font-size:clamp(18px,1.6vw,28px);color:#b3afac;transition:color .35s;font-family:var(--font-display);font-weight:500}
 .lc-nav li span{font-size:13px;margin-top:.5em;font-family:var(--font);font-variant-numeric:tabular-nums}
 .lc-nav li.on{color:var(--ink)}
-.lc-mid{display:flex;align-items:center;justify-content:center;height:100%;min-height:0;background:var(--white);border-radius:12px;padding:clamp(16px,3vw,48px)}
+.lc-mid{display:flex;align-items:center;justify-content:center;height:100%;min-height:0;padding:clamp(16px,3vw,48px)}
 .lc-mid svg{width:min(100%,72vh);height:auto;overflow:visible;}
 .lc-right{position:relative;align-self:center;min-height:360px}
 .lc-tx{position:absolute;left:0;right:0;top:50%;transform:translateY(-46%);opacity:0;pointer-events:none;transition:opacity .45s,transform .6s cubic-bezier(.2,.8,.2,1)}
@@ -31,7 +31,7 @@
     pts([1,.96,1,.96,1,.96,1,.96,1,.96,1,.96,1,.96,1,.96]),
     pts([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1])
   ];
-  var smooth=[0,0,.75,1],col=[[139,134,128],[110,106,102],[70,68,66],[33,33,34]];
+  var smooth=[0,0,.75,1],col=[[139,134,128],[176,172,168],[218,216,214],[255,255,255]];
   var path=document.getElementById('lcp'),hl=document.getElementById('lcf'),cuts=document.getElementById('lcc');
   function lerp(a,b,t){return a+(b-a)*t}
   function build(P,s){

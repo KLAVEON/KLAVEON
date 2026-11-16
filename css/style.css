@@ -739,3 +739,4 @@ body:not(.home) .nav .links{top:50%;transform:translate(-50%,-50%)}
 .pc{padding-bottom:clamp(20px,2vw,32px)}
 .three .pnote{padding-left:0}
 .three{padding-bottom:clamp(72px,8vw,120px)}
+body:not(.home) .lc-pin{padding-top:48px}@media(max-width:991px){body:not(.home) .lc-pin{padding-top:72px}}

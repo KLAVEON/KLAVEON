@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lab A: flip stack | KLAVEON</title><meta name="description" content="Selected work from KLAVEON, a strategic branding agency in Lagos. Strategy first, design as proof."><link rel="preload" href="../fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../fonts/inter-tight-var.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="../css/style.css?v=20261116a"><meta name="robots" content="noindex"></head><body class=""><header class="nav"><a class="brand" href="../index.html">KLAVEON</a><nav class="links"><a href="../work/" aria-current="page">Work</a><a href="../services/">Services</a><a href="../programmes/">Programmes</a><a href="../method/">How We Work</a><a href="../index.html#about">About</a></nav><a class="right cta-link" href="../index.html#contact">Work with us</a><button class="menu-btn" type="button" aria-expanded="false">Menu</button></header>
+<main class="lab"><section class="lab-a">
+<div class="la-l"><span class="la-cap">(Our method)</span><h1>Four stages, in order.<br>None skipped.</h1><p>Each stage ends with something the next one depends on. Turn the card to see what you leave with.</p>
+<div class="la-ctl"><button type="button" class="la-prev" aria-label="Previous stage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></button><button type="button" class="la-next" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button><span class="la-count" aria-live="polite"><b>01</b> / 04</span></div></div>
+<div class="la-r"><div class="la-stack" id="stack">
+<article class="la-card" data-n="01"><div class="la-in"><div class="la-f"><span class="la-no">01</span><h2>Prospect</h2><p>Read the terrain and surface what is true about the brand, so the work starts from evidence.</p><span class="la-hint">Turn card</span></div><div class="la-b"><span class="la-no">01 / Prospect</span><h3>You leave with</h3><ul><li>A category audit</li><li>An audience portrait</li><li>An honesty brief: what the brand is good at today, and what it only aspires to</li></ul></div></div></article>
+<article class="la-card" data-n="02"><div class="la-in"><div class="la-f"><span class="la-no">02</span><h2>Extract</h2><p>Find the load-bearing idea, the single thought everything else depends on, and name it precisely.</p><span class="la-hint">Turn card</span></div><div class="la-b"><span class="la-no">02 / Extract</span><h3>You leave with</h3><ul><li>A Defining Idea in one sentence</li><li>A positioning statement</li><li>The one claim no direct competitor can credibly make</li></ul></div></div></article>
+<article class="la-card" data-n="03"><div class="la-in"><div class="la-f"><span class="la-no">03</span><h2>Refine</h2><p>Remove what does not belong, and carry strategy into verbal and visual identity so every layer traces back to the idea.</p><span class="la-hint">Turn card</span></div><div class="la-b"><span class="la-no">03 / Refine</span><h3>You leave with</h3><ul><li>A verbal identity system</li><li>A visual identity direction</li><li>A messaging architecture, from category claim to proof points</li></ul></div></div></article>
+<article class="la-card" data-n="04"><div class="la-in"><div class="la-f"><span class="la-no">04</span><h2>Pour</h2><p>The brand enters the world in a form built to last, with the guidelines the team needs to keep it consistent.</p><span class="la-hint">Turn card</span></div><div class="la-b"><span class="la-no">04 / Pour</span><h3>You leave with</h3><ul><li>Brand guidelines the team can use</li><li>Handover files and templates</li><li>A rollout order for every touchpoint</li></ul></div></div></article>
+</div></div></section></main>
+<style>
+.lab-a{display:grid;grid-template-columns:42% 1fr;gap:var(--pad);padding:72px var(--pad) 120px;min-height:calc(100vh - 100px);align-items:center}
+.la-l{display:flex;flex-direction:column;gap:28px;align-self:stretch;justify-content:space-between}
+.la-cap{font-size:14px;font-weight:500}
+.la-l h1{margin:0;font-size:clamp(34px,4.3vw,80px);line-height:1.04;letter-spacing:-.02em;font-weight:600;font-family:var(--font-display)}
+.la-l p{margin:0;max-width:24em;font-size:clamp(16px,1.35vw,24px);line-height:1.4;font-weight:500}
+.la-ctl{display:flex;align-items:center;gap:12px}
+.la-ctl button{width:56px;height:56px;border-radius:50%;border:1px solid var(--ink);background:none;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,color .3s}
+.la-ctl button:hover{background:var(--ink);color:#fff}
+.la-ctl svg{width:22px;height:22px}
+.la-count{margin-left:12px;font-size:15px;color:var(--sand);font-variant-numeric:tabular-nums}.la-count b{color:var(--ink);font-weight:500}
+.la-r{display:flex;justify-content:center}
+.la-stack{position:relative;width:min(100%,520px);aspect-ratio:4/5;perspective:1600px;margin:0 auto 40px}
+.la-card{position:absolute;inset:0;--p:0;z-index:calc(10 - var(--p));transform:translate3d(calc(var(--p)*18px),calc(var(--p)*20px),0) scale(calc(1 - var(--p)*.045));transform-origin:50% 100%;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .4s;cursor:pointer;outline:none}
+.la-card.out{transform:translate3d(-120%,-6%,0) rotate(-9deg);opacity:0;transition:transform .55s cubic-bezier(.6,0,.4,1),opacity .55s}
+.la-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.la-card.is-flipped .la-in{transform:rotateY(180deg)}
+.la-f,.la-b{position:absolute;inset:0;border-radius:10px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 1px 0 rgba(0,0,0,.04),0 18px 50px rgba(0,0,0,.08)}
+.la-f{background:#fff;color:var(--ink)}
+.la-b{background:var(--ink);color:#f2f2f2;transform:rotateY(180deg)}
+.la-no{font-size:14px;font-variant-numeric:tabular-nums;color:var(--sand)}
+.la-f h2{margin:auto 0 16px;font-size:clamp(48px,6vw,104px);line-height:.95;letter-spacing:-.03em;font-weight:600;font-family:var(--font-display)}
+.la-f p{margin:0;font-size:clamp(15px,1.15vw,20px);line-height:1.4;max-width:22em}
+.la-hint{margin-top:28px;font-size:13px;color:var(--sand);display:flex;align-items:center;gap:8px}
+.la-hint::after{content:'';width:18px;height:1px;background:currentColor}
+.la-b h3{margin:auto 0 18px;font-size:14px;font-weight:500;color:#a9a6a2;letter-spacing:.02em}
+.la-b ul{list-style:none;margin:0;padding:0;margin-bottom:auto}
+.la-b li{padding:14px 0;border-top:1px solid rgba(255,255,255,.16);font-size:clamp(16px,1.35vw,22px);line-height:1.3}
+.la-b .la-no{color:#a9a6a2}
+.la-card:not([data-top]) .la-hint{opacity:0}
+@media(max-width:991px){.lab-a{grid-template-columns:1fr;gap:40px;align-items:start;padding-top:48px}.la-l{gap:20px}.la-stack{width:min(100%,420px);margin-bottom:56px}}
+@media(prefers-reduced-motion:reduce){.la-card,.la-in,.la-card.out{transition-duration:.01s}}
+</style>
+<script>
+(function(){
+  var st=document.getElementById('stack'),cards=[].slice.call(st.children),order=cards.slice(),busy=false;
+  var cnt=document.querySelector('.la-count b');
+  function paint(){
+    order.forEach(function(c,i){
+      c.style.setProperty('--p',i);c.toggleAttribute('data-top',i===0);
+      c.tabIndex=i===0?0:-1;c.setAttribute('aria-hidden',i===0?'false':'true');
+      c.setAttribute('role','button');
+      c.setAttribute('aria-label',i===0?(c.classList.contains('is-flipped')?'Send card to back':'Turn card')+', stage '+c.getAttribute('data-n'):'');
+    });
+    cnt.textContent=order[0].getAttribute('data-n');
+  }
+  function next(){
+    if(busy)return;var top=order[0];
+    if(!top.classList.contains('is-flipped')){top.classList.add('is-flipped');paint();return}
+    busy=true;top.classList.add('out');
+    setTimeout(function(){
+      top.classList.remove('is-flipped');
+      order.push(order.shift());paint();
+      top.style.transition='none';top.classList.remove('out');void top.offsetWidth;top.style.transition='';
+      busy=false;
+    },520);
+  }
+  function prev(){
+    if(busy)return;var top=order[0];
+    if(top.classList.contains('is-flipped')){top.classList.remove('is-flipped');paint();return}
+    var last=order[order.length-1];busy=true;
+    last.style.transition='none';last.classList.add('out');last.classList.add('is-flipped');void last.offsetWidth;last.style.transition='';
+    order.unshift(order.pop());paint();last.classList.remove('out');
+    setTimeout(function(){busy=false},600);
+  }
+  st.addEventListener('click',function(e){if(e.target.closest('.la-card')===order[0])next()});
+  st.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target===order[0]){e.preventDefault();next()}});
+  document.querySelector('.la-next').addEventListener('click',next);
+  document.querySelector('.la-prev').addEventListener('click',prev);
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
+  paint();
+})();
+</script>
+<script src="../js/main.js?v=20261116a"></script></body></html>

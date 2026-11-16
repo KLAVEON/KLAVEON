@@ -34,6 +34,7 @@
     var fa=Math.max(0,1-Math.abs(p-1)*1.6),g='';
     if(fa>0.01){for(var j=0;j<N;j+=2){g+='<path stroke="rgba(33,33,34,.16)" d="M0 0L'+P[j][0].toFixed(1)+' '+P[j][1].toFixed(1)+'" opacity="'+fa.toFixed(2)+'"/>'}}
     cuts.innerHTML=g;
+    var w=document.getElementById('lcw');if(w)w.style.opacity=Math.min(1,Math.max(0,(p-2.55)/.4)).toFixed(2);
     var k=Math.min(3,Math.round(p));
     if(k!==last){last=k;tx.forEach(function(e,m){e.classList.toggle('on',m===k)});nav.forEach(function(e,m){e.classList.toggle('on',m===k)})}
   }

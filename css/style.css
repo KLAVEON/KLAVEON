@@ -822,3 +822,13 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .has-stack main>#lc,.has-stack main>.mq,.has-stack main>.cta2{position:relative;background:var(--bg)}
 .has-stack main>.cta2{background:var(--ink)}
 @media(prefers-reduced-motion:reduce){.tp>[role=tabpanel],.fa,.fq i,.tl button{transition:none}}
+/* Round 20: circular cursor label, tab panel aligned to list */
+.cur{width:120px;height:120px;padding:0 14px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:normal;line-height:1.2;font-size:14px;background:#fff;border-radius:50%}
+@media(min-width:992px){
+.tabs{align-items:start}
+.tp{border-top:1px solid var(--fog);padding-top:clamp(14px,1.5vw,24px)}
+.tabs-p .tp{background:transparent;border-radius:0;padding:clamp(14px,1.5vw,24px) 0 0}
+.tp p{font-size:clamp(20px,1.9vw,32px);max-width:22em}
+.tp ul{margin-top:clamp(28px,3.4vw,56px)}
+.tp li:last-child{border-bottom:1px solid var(--fog)}
+}

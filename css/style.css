@@ -965,4 +965,4 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 /* Rotating asterisk between big marquee titles */
 .mq.big .st{display:inline-block;flex:none;width:.9em;height:.9em;color:var(--ink)}
 .mq.big .st svg{display:block;width:100%;height:100%;animation:spin 7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spin{to{transform:rotate(-360deg)}}

@@ -954,3 +954,9 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .wmedia img{display:block;width:100%;height:100%;object-fit:cover}
 .pmedia img{filter:none}
 @media(max-width:991px){.pg-fit .sq{grid-column:1}.wmedia{aspect-ratio:4/3}}
+/* Round: real photos, shorter frames */
+.sq{aspect-ratio:16/9}
+.pg-fit .sq{aspect-ratio:16/10}
+.sq img,.wmedia img,.pr-c img,.pmedia img{filter:grayscale(1) contrast(1.04)}
+.wmedia{aspect-ratio:16/9}
+@media(max-width:767px){.sq,.pg-fit .sq{aspect-ratio:4/3}}

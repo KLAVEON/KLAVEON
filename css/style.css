@@ -960,3 +960,6 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .sq img,.wmedia img,.pr-c img,.pmedia img{filter:grayscale(1) contrast(1.04)}
 .wmedia{aspect-ratio:16/9}
 @media(max-width:767px){.sq,.pg-fit .sq{aspect-ratio:4/3}}
+/* Large page-title marquees: moving arrow in place of the old glyph */
+.mq.big .ar{width:1.1em;height:.62em;color:var(--ink)}
+.mq.big .ar svg{stroke-width:4.5}

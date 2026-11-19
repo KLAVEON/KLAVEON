@@ -966,3 +966,10 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .mq.big .st{display:inline-block;flex:none;width:.9em;height:.9em;color:var(--ink)}
 .mq.big .st svg{display:block;width:100%;height:100%;animation:spin 7s linear infinite}
 @keyframes spin{to{transform:rotate(-360deg)}}
+/* What we believe: scrolling title at the original size */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mq.mq-b{margin:0 calc(var(--pad)*-1) 9vw;padding:0;background:transparent}
+.mq.mq-b div{font-size:6.6vw;line-height:1.04;font-weight:600;gap:3.5vw;padding:.06em 0}
+.mq.mq-b .st{display:inline-block;flex:none;width:.8em;height:.8em;color:var(--ink)}
+.mq.mq-b .st svg{display:block;width:100%;height:100%;animation:spin 7s linear infinite}
+@media(max-width:767px){.mq.mq-b div{font-size:11vw}.mq.mq-b{margin-bottom:56px}}

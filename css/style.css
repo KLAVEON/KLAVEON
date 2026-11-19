@@ -725,7 +725,6 @@ body:not(.home) .nav .links{top:50%;transform:translate(-50%,-50%)}
 #lcp{stroke:rgba(33,33,34,.12);stroke-width:1}
 
 .lc-nav li{cursor:pointer}.lc-nav li:hover{color:var(--ink)}.lc-nav li:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-#stages-wrap{display:none}
 
 #lcp{stroke:none}
 .lc-mid{position:relative}.lc-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--font-display);font-weight:600;letter-spacing:-.03em;line-height:.95;font-size:clamp(26px,4vw,76px);opacity:0;pointer-events:none}
@@ -898,3 +897,16 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .tl button:last-child{border-bottom:1px solid var(--fog)}
 .tl button em{align-self:flex-start}
 }
+/* Round 24: programme tabs with media placeholder, stages grid back on home, arrow cursor */
+.tabs-p .tp>[role=tabpanel]{display:flex;flex-direction:column;height:100%}
+.pmedia{flex:1 1 auto;min-height:clamp(240px,30vw,460px);background:#e6e3e1;display:flex;align-items:center;justify-content:center;border-radius:0}
+.pmedia span{font-size:13px;color:var(--sand)}
+.pbot{margin-top:clamp(16px,1.6vw,24px)}
+.pbot .ds{margin:0 0 clamp(14px,1.4vw,22px);max-width:30em}
+.stg-h{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--pad);flex-wrap:wrap}
+.stg-h .sec-title{margin:0}
+.cur svg{display:block}
+#stages-wrap{display:block}
+@media(min-width:992px){.tabs-p .tp{border-top:0;padding-top:0}.tabs-p .tl button{padding-top:clamp(14px,1.5vw,24px)}}
+#stages-wrap .hsteps li{padding-left:0;padding-right:0}
+#stages-wrap .stg-h .sec-title{padding-left:0}

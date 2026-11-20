@@ -973,3 +973,8 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .mq.mq-b .st{display:inline-block;flex:none;width:.8em;height:.8em;color:var(--ink)}
 .mq.mq-b .st svg{display:block;width:100%;height:100%;animation:spin 7s linear infinite}
 @media(max-width:767px){.mq.mq-b div{font-size:11vw}.mq.mq-b{margin-bottom:56px}}
+/* Footer line under the wordmark */
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0;padding:clamp(20px,2vw,32px) var(--pad) clamp(24px,2.4vw,40px);font-size:clamp(13px,1vw,16px);font-weight:500;color:var(--ink);background:var(--bg)}
+.foot span:last-child{color:var(--castle);font-weight:400}
+.cta2 .foot{display:flex;width:auto;max-width:none;background:transparent;color:#f2f2f2;margin:0;padding:clamp(16px,1.6vw,28px) 0 clamp(24px,2.4vw,40px);border-top:1px solid rgba(242,242,242,.18)}
+.cta2 .foot span:last-child{color:#BCC0C3}

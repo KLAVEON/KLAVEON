@@ -915,7 +915,7 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .oc-h{margin:0;font-family:var(--font-display);font-weight:500;font-size:clamp(34px,4.6vw,80px);line-height:1.02;letter-spacing:-.02em;max-width:13em;text-transform:none}
 .oc-p{margin:clamp(24px,2.4vw,40px) 0 0;font-size:clamp(17px,1.5vw,24px);line-height:1.4;color:var(--castle);max-width:28em}
 .oc-proof,.oc-go{margin-top:clamp(40px,5vw,88px);padding-top:clamp(14px,1.4vw,22px);border-top:1px solid var(--fog)}
-.oc-proof p{margin:12px 0 18px;font-size:clamp(16px,1.3vw,21px);line-height:1.4;max-width:28em}
+.oc-proof p{margin:12px 0 18px;font-size:clamp(15px,1.2vw,23px);line-height:1.4;max-width:28em}
 .oc-go{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 .oc-go .oc-lab{margin-bottom:6px}
 @media(max-width:991px){.oc{grid-template-columns:1fr;gap:20px;padding:72px var(--pad) 64px}}
@@ -983,3 +983,11 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .cta2 label,.cta2 .fnote,.step.is-active,.unlock label,.idea.dk .l{color:var(--sand-l)}
 .cta2 input,.cta2 textarea{border-bottom-color:var(--sand-l)}
 .lc-nav li button{all:unset;box-sizing:border-box;display:flex;gap:16px;width:100%;cursor:pointer;color:inherit;font:inherit}.lc-nav li button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+/* Round 10: outcome section matches the diagnosis rows (same grid, label and headline scale) */
+.oc{grid-template-columns:42% 1fr}
+.oc-lab{font-size:clamp(13px,0.95vw,18px);font-weight:500}
+.oc-h{font-size:clamp(24px,3.24vw,62px);line-height:1.12;font-weight:600;letter-spacing:-.012em;max-width:17em}
+.oc-p{font-size:clamp(15px,1.2vw,23px);line-height:1.5;max-width:30em}
+.oc-proof p{font-size:clamp(15px,1.2vw,23px);line-height:1.5}
+@media(max-width:991px){.oc{grid-template-columns:1fr}.oc-h{font-size:26px}.oc-p,.oc-proof p{font-size:15px}}
+@media(max-width:767px){.tlink,.inq,.go,.areas a{position:relative}.tlink::after,.inq::after,.go::after,.areas a::after{content:"";position:absolute;left:-4px;right:-4px;top:50%;height:max(100%,44px);transform:translateY(-50%)}}

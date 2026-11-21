@@ -777,7 +777,7 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .tp .tlink{margin-top:clamp(24px,2.6vw,40px)}
 .tabs-p .tp{background:var(--bg);border-radius:8px;padding:clamp(20px,3vw,48px)}
 .three .tabs-p .tl button{font-size:clamp(26px,3.2vw,56px)}
-@media(max-width:991px){.tabs{grid-template-columns:1fr;gap:28px}.tp ul{columns:1}.tabs-p .tp{padding:24px 20px}}
+@media(max-width:699px){.tabs{grid-template-columns:1fr;gap:28px}.tp ul{columns:1}.tabs-p .tp{padding:24px 20px}}
 /* FAQ */
 .fgrid{display:grid;grid-template-columns:5fr 7fr;gap:var(--pad)}
 .fl{border-bottom:1px solid var(--fog)}
@@ -796,7 +796,7 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .fq.is-open .fa{grid-template-rows:1fr}
 .fa p{margin:0;padding:0 56px clamp(20px,2vw,32px) 0;max-width:36em;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:var(--castle);opacity:0;transform:translateY(-8px);transition:opacity .4s,transform .5s cubic-bezier(.2,.7,.2,1)}
 .fq.is-open .fa p{opacity:1;transform:none;transition-delay:.12s}
-@media(max-width:991px){.fgrid{grid-template-columns:1fr;gap:32px}.fa p{padding-right:0}}
+@media(max-width:699px){.fgrid{grid-template-columns:1fr;gap:32px}.fa p{padding-right:0}}
 /* Gallery slider */
 .gl-sec{padding:clamp(56px,7vw,120px) 0 0}
 .gl-top{display:flex;justify-content:space-between;align-items:center;padding:0 var(--pad) 20px;font-size:14px}
@@ -847,7 +847,7 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .pr-c svg{width:26%;fill:#f2f2f2;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .pr:hover .pr-c svg{transform:scale(1.25)}
 .services .pr:last-of-type{border-bottom:1px solid var(--fog)}
-@media(max-width:991px){.pr{grid-template-columns:1fr;gap:24px}.pr-c{order:-1;aspect-ratio:16/9}.pr .sl{columns:1}}
+@media(max-width:699px){.pr{grid-template-columns:1fr;gap:24px}.pr-c{order:-1;aspect-ratio:16/9}.pr .sl{columns:1}}
 .pr .meta{text-transform:none;letter-spacing:0}
 /* Round 22: programme page template */
 .pr .meta2{margin:6px 0 0;font-size:clamp(13px,.95vw,17px);color:var(--sand)}
@@ -883,7 +883,7 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .pg-faq{padding:clamp(56px,7vw,128px) var(--pad);border-top:1px solid var(--fog)}
 .pg-faq .fgrid{padding:0}
 .pg-next .r>p{margin-top:20px}
-@media(max-width:991px){.pg-fit,.pg-acc,.pg-fine,.pg-next,.pg-work{grid-template-columns:1fr;gap:24px}.og{grid-template-columns:1fr;gap:48px}.pg-work .proj{grid-column:1}.fr2{grid-template-columns:1fr;gap:8px}.fr2 .fn{display:none}.pg-acc .fa p{padding-left:0}}
+@media(max-width:699px){.pg-fit,.pg-acc,.pg-fine,.pg-next,.pg-work{grid-template-columns:1fr;gap:24px}.og{grid-template-columns:1fr;gap:48px}.pg-work .proj{grid-column:1}.fr2{grid-template-columns:1fr;gap:8px}.fr2 .fn{display:none}.pg-acc .fa p{padding-left:0}}
 .pg-acc .fq button .pn2{min-width:0;width:4.5rem;flex:none}
 .pg-acc .fa p{padding-left:calc(4.5rem + 24px)}
 @media(max-width:991px){.pg-acc .fa p{padding-left:0}}
@@ -1000,4 +1000,12 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .brow{grid-template-columns:42% 1fr;gap:var(--pad)}.brow{padding-top:3.4vw;padding-bottom:7vw}
 .bl{gap:2.4vw}.br h3{font-size:clamp(20px,3.24vw,62px)}.br p{margin-top:3vw;font-size:clamp(13px,1.5vw,23px)}
 .oc{grid-template-columns:42% 1fr;gap:var(--pad)}.oc-h{font-size:clamp(20px,3.24vw,62px)}.oc-p,.oc-proof p{font-size:clamp(13px,1.5vw,23px)}
+}
+
+/* Round 12: the remaining two and three column layouts hold until 700px; type scales with the viewport in between */
+@media(min-width:700px) and (max-width:991px){
+.plans3{grid-template-columns:repeat(3,1fr);gap:12px}.pc h3{font-size:clamp(20px,3vw,30px)}.pc .ds{font-size:clamp(13px,1.5vw,15px)}
+.cta2 .cols{grid-template-columns:1fr 1fr;gap:5vw}.cta2 .r{padding-left:10%}
+.pr .st{font-size:clamp(15px,1.8vw,23px)}.pr h2,.pr h3{font-size:clamp(26px,4.2vw,80px)}
+.pg-out h3{font-size:clamp(15px,1.5vw,22px)}.three .sub,.sub{font-size:clamp(14px,1.5vw,22px)}
 }

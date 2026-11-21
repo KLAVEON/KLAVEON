@@ -1010,3 +1010,5 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .pg-out h3{font-size:clamp(15px,1.5vw,22px)}.three .sub,.sub{font-size:clamp(14px,1.5vw,22px)}
 }
 @media(max-width:767px){.three .sec-title{margin-bottom:20px}.three .sub{margin-top:0}}
+/* Round 13: mobile trims */
+@media(max-width:767px){.sv-links .cap,.sv-links>span.cap{display:none}.work-tg #v-explore{display:none}}

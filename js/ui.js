@@ -57,7 +57,8 @@
 
   /* Stacking cards: each .cs section sticks when its bottom reaches the screen, and the next card slides up over it */
   var cards=[].slice.call(document.querySelectorAll('main > .stk'));
-  if(cards.length&&!rm){
+  var desk=window.matchMedia&&matchMedia('(min-width:768px) and (hover:hover)').matches;
+  if(cards.length&&!rm&&desk){
     var main=cards[0].parentNode,kids=[].slice.call(main.children),first=kids.indexOf(cards[0]);
     document.documentElement.classList.add('has-stack');
     kids.forEach(function(k,i){if(i>=first)k.style.zIndex=String(i-first+2)});

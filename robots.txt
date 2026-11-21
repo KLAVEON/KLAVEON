@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /KLAVEON/lab/
+Sitemap: https://klaveon.github.io/KLAVEON/sitemap.xml

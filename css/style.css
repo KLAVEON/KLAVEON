@@ -1026,3 +1026,7 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .vtx .bt{font-size:12px;letter-spacing:.06em;color:var(--sand);margin-bottom:14px}
 .vtx .det,.vtx .did{max-width:40em}
 @media(max-width:699px){.vtx .vbody{grid-column:1/-1}.vtx .blk{margin-top:32px}}
+
+/* Round 16: real SKIN by Tea media */
+.ph img,.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vv .ph-hero .ph{background:#0c0c0c}

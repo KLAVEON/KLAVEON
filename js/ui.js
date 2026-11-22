@@ -88,3 +88,15 @@
     layout();
   }
 })();
+
+/* Autoplay case-study film only while it is on screen (muted, skipped for reduced motion) */
+(function(){
+  var vs=document.querySelectorAll('video[data-autoplay]');
+  if(!vs.length||!('IntersectionObserver' in window))return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    var v=e.target;
+    if(e.isIntersecting){v.preload='auto';var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause();
+  })},{threshold:.35});
+  vs.forEach(function(v){io.observe(v)});
+})();

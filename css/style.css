@@ -1039,3 +1039,8 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .det dt,.rtx .bt,.vtx .bt{font-size:clamp(14px,1.05vw,17px)}
 .det>div,.did li{padding:clamp(14px,1.2vw,20px) 0}
 @media(max-width:699px){.cs .vtx p{font-size:17px}}
+
+/* Round 19: right-column content fills the column, as on Motto */
+.cs .vtx h2,.cs .vtx p,.cs .vtx .vbody p,.vtx .det,.vtx .did,.cs .rtx,.cs .rtx p,.cs .rtx h2,.det,.did{max-width:none}
+.br h3,.br p,.oc-h,.oc-p,.oc-proof p,.svr .st,.svr .sl,.svr .fr,.pr .st,.pr .fr,.tp p,.tp .fr,.fa p,.fr2 p,.oi p,.pg-fit h2,.pg-next h2,.pg-fit .fp,.pg-next .r>p,.pg-fit ul,.mstep p,.pbot .ds,.sv-state .big,.sv-state .aud,.lc-tx p,.sec .body{max-width:none}
+.vv .vgrid+.vgrid{margin-top:16px}

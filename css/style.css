@@ -2,7 +2,7 @@
 @font-face{font-family:'Inter Tight';font-style:normal;font-weight:100 900;font-display:swap;src:url('../fonts/inter-tight-var.woff2') format('woff2')}
 @font-face{font-family:'Inter Fallback';src:local('Arial'),local('Helvetica Neue'),local('Helvetica');size-adjust:107.4%;ascent-override:90.5%;descent-override:22.6%;line-gap-override:0%}
 @font-face{font-family:'Inter Tight Fallback';src:local('Arial'),local('Helvetica Neue'),local('Helvetica');size-adjust:100%;ascent-override:96%;descent-override:24%;line-gap-override:0%}
-:root{--bg:#F2F2F2;--ink:#212122;--castle:#212122;--fog:#DDDAD8;--sand:#212122;--sand-l:#A39E98;--white:#FFFFFF;--olive:#575E56;--umber:#474241;--stone:#C3BEBD;--mist:#BCC0C3;--ash:#CBCBCB;--pill:rgba(255,255,255,.92);--font:'Inter','Inter Fallback','Helvetica Neue',Arial,sans-serif;--font-display:'Inter Tight','Inter Tight Fallback','Inter','Helvetica Neue',Arial,sans-serif;--pad:32px}
+:root{--bleed:14px;--bg:#F2F2F2;--ink:#212122;--castle:#212122;--fog:#DDDAD8;--sand:#212122;--sand-l:#A39E98;--white:#FFFFFF;--olive:#575E56;--umber:#474241;--stone:#C3BEBD;--mist:#BCC0C3;--ash:#CBCBCB;--pill:rgba(255,255,255,.92);--font:'Inter','Inter Fallback','Helvetica Neue',Arial,sans-serif;--font-display:'Inter Tight','Inter Tight Fallback','Inter','Helvetica Neue',Arial,sans-serif;--pad:clamp(20px,4.9vw,120px)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -81,7 +81,7 @@ button.submit:hover{opacity:.85}
 .end .l{font-size:14px;color:var(--sand);text-transform:uppercase;letter-spacing:.06em}
 .end a{font-size:clamp(48px,9vw,150px);letter-spacing:-.014em;line-height:1;text-decoration:none}
 @media(max-width:991px){.stage{grid-template-columns:48px 1fr}.stage p{grid-column:2}section.block,.sec{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:767px){:root{--pad:16px}.grid{grid-template-columns:1fr}.idea{left:12px;bottom:84px;width:calc(100vw - 24px)}.toggle{right:12px;bottom:12px}.idea .q{font-size:34px}.nav .links{gap:16px}}
+@media(max-width:767px){:root{--pad:16px;--bleed:16px}.grid{grid-template-columns:1fr}.idea{left:12px;bottom:84px;width:calc(100vw - 24px)}.toggle{right:12px;bottom:12px}.idea .q{font-size:34px}.nav .links{gap:16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 .work .meta,.card .meta{text-transform:none;letter-spacing:normal;font-size:inherit;display:flex;justify-content:space-between;align-items:baseline;padding:14px 0 0}
 .work.is-list .meta{display:contents}
@@ -1042,5 +1042,17 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 
 /* Round 19: right-column content fills the column, as on Motto */
 .cs .vtx h2,.cs .vtx p,.cs .vtx .vbody p,.vtx .det,.vtx .did,.cs .rtx,.cs .rtx p,.cs .rtx h2,.det,.did{max-width:none}
-.br h3,.br p,.oc-h,.oc-p,.oc-proof p,.svr .st,.svr .sl,.svr .fr,.pr .st,.pr .fr,.tp p,.tp .fr,.fa p,.fr2 p,.oi p,.pg-fit h2,.pg-next h2,.pg-fit .fp,.pg-next .r>p,.pg-fit ul,.mstep p,.pbot .ds,.sv-state .big,.sv-state .aud,.lc-tx p,.sec .body{max-width:none}
+.br h3,.br p,.oc-h,.oc-p,.oc-proof p,.svr .st,.svr .sl,.svr .fr,.pr .st,.pr .fr,.tp p,.tp .fr,.fa p,.fr2 p,.oi p,.pg-fit h2,.pg-next h2,.pg-fit .fp,.pg-next .r>p,.pg-fit ul,.mstep p,.pbot .ds,.sv-state .big,.sv-state .aud,.lc-tx p,.sec .body{max-width:86%}
 .vv .vgrid+.vgrid{margin-top:16px}
+
+/* Round 20: Motto layout decoded. Margin 4.9vw. Right-column text spans grid columns 6 to 11 (about 86% of the right column), leaving column 12 empty. Media bleeds to a 14px gutter. */
+.cs .vtx h2,.vtx .vbody{grid-column:6/12}
+.rtx{grid-column:7/12}
+.rimg{grid-column:1/6}
+.cs .vtx p,.cs .vtx .vbody p,.vtx .det,.vtx .did{max-width:none}
+.vv .ph-hero,.vv .vgrid{margin-inline:calc(var(--bleed) - var(--pad))}
+.cover{padding:0 var(--bleed)}
+.work .grid,.grid{padding-inline:var(--bleed)}
+.proj{margin-inline:calc(var(--bleed) - var(--pad))}
+@media(max-width:699px){.cs .vtx h2,.vtx .vbody{grid-column:1/-1}}
+@media(max-width:991px){.rtx{grid-column:auto}}

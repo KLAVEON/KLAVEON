@@ -119,7 +119,7 @@
       if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.3)/.3)));
       if(cap){cap.style.opacity=String(Math.max(0,1-p*7));cap.style.transform='translateY('+Math.max(0,y0-(mob?32:40)-capH)+'px)'}
     }
-    function measure(){pad=window.innerWidth<768?16:32;
+    function measure(){pad=window.innerWidth<768?16:Math.min(120,Math.max(20,window.innerWidth*0.049));
       W=stage.clientWidth;H=stage.clientHeight;
       door.setAttribute('viewBox','0 0 '+W+' '+H);
       capH=cap?cap.offsetHeight:16;unlock.style.marginTop=((W<768?112:Math.round(Math.max(120,Math.min(W*0.14,230))))-(H-panelH())/2)+'px';

@@ -190,3 +190,23 @@
   items.forEach(function(m,i){var a=m.querySelector('.nx');a.addEventListener('click',function(e){if(i<N-1){e.preventDefault();go(i+1)}else{a.setAttribute('href','../index.html#contact')}})});
   set(idx());
 })();
+
+/* Footer wordmark: scale so the ink of the word spans exactly margin to margin */
+(function(){
+  var el=document.querySelector('.bigword');if(!el)return;
+  var cv=document.createElement('canvas').getContext('2d');
+  function fit(){
+    var par=el.parentElement,pc=getComputedStyle(par),cs=getComputedStyle(el);
+    var avail=par.clientWidth-parseFloat(pc.paddingLeft)-parseFloat(pc.paddingRight);
+    var txt=el.textContent.trim().toUpperCase();
+    cv.font=cs.fontWeight+' 100px '+cs.fontFamily;
+    if('letterSpacing' in cv)cv.letterSpacing=(parseFloat(cs.letterSpacing)||0)/parseFloat(cs.fontSize)*100+'px';
+    var m=cv.measureText(txt),ink=m.actualBoundingBoxRight+m.actualBoundingBoxLeft;
+    if(!ink||!isFinite(ink))return;
+    var size=100*avail/ink;
+    el.style.fontSize=size.toFixed(2)+'px';
+    el.style.marginLeft=(m.actualBoundingBoxLeft*size/100).toFixed(2)+'px';
+  }
+  fit();addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();

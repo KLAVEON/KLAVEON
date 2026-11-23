@@ -71,7 +71,7 @@ button.submit:hover{opacity:.85}
 .facts span{display:block;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--sand);margin-bottom:6px}
 .cover img,.proof img{width:100%;height:auto}
 .proof{display:grid;gap:0}
-.sec{display:grid;grid-template-columns:43% 1fr;padding:96px var(--pad);border-top:1px solid var(--fog)}
+.sec{display:grid;grid-template-columns:5fr 7fr;padding:96px var(--pad);border-top:1px solid var(--fog)}
 .sec .body{font-size:clamp(22px,2.2vw,34px);line-height:1.3;letter-spacing:-.005em;max-width:900px}
 .sec .body p{margin:0 0 1em}
 .sec .body ul{margin:0;padding-left:1.1em}
@@ -303,7 +303,7 @@ body.home .nav .menu-btn::after{content:'';position:absolute;left:0;right:0;bott
 
 /* Round 6: alignment, unlock field copy, services section */
 .unlock .field{padding:0 var(--pad)}
-.unlock .field .lead{width:100%;display:grid;grid-template-columns:42% 1fr;gap:var(--pad);align-items:start;padding-top:6vw}
+.unlock .field .lead{width:100%;display:grid;grid-template-columns:5fr 7fr;gap:16px;align-items:start;padding-top:6vw}
 .unlock .field .k{margin:0;font-size:clamp(14px,1.15vw,22px);font-weight:500;line-height:1.3}
 .unlock .field .r{max-width:36em;pointer-events:auto}
 .unlock .field .big{margin:0;font-size:clamp(22px,2.59vw,50px);font-weight:500;line-height:1.25;letter-spacing:-.008em}
@@ -350,13 +350,13 @@ body.home .nav .brand{margin-left:-.07em}
 .sv-hero .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .mq.big{border-block:1px solid var(--fog);margin:0}
 .mq.big div{font-size:10vw;gap:5vw;line-height:1.3;padding:.04em 0}
-.sv-lead{display:grid;grid-template-columns:42% 1fr;gap:var(--pad);padding:4vw var(--pad) 0}
+.sv-lead{display:grid;grid-template-columns:5fr 7fr;gap:16px;padding:4vw var(--pad) 0}
 .sv-lead p{grid-column:2;margin:0;max-width:22em;font-size:clamp(18px,2.1vw,40px);line-height:1.25;font-weight:500;letter-spacing:-.005em}
 .sv-links{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;margin-top:9vw;padding-bottom:3vw;font-size:clamp(14px,1.05vw,20px);font-weight:500}
 .sv-links a{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:4px;margin-right:2.4vw;transition:background-size .3s}.sv-links a:hover{background-size:0 1px}
 .sv-links .cap{margin-left:auto}
 .sv-links a:first-child{margin-right:2.4vw}
-.sv-state{display:grid;grid-template-columns:42% 1fr;gap:var(--pad);padding:8vw var(--pad);border-top:1px solid var(--fog)}
+.sv-state{display:grid;grid-template-columns:5fr 7fr;gap:16px;padding:8vw var(--pad);border-top:1px solid var(--fog)}
 .sv-state .cap{font-size:clamp(14px,0.95vw,18px)}
 .sv-state .big{margin:0;font-size:clamp(22px,2.81vw,54px);line-height:1.2;font-weight:500;letter-spacing:-.008em;max-width:22em}
 .sv-state .aud{margin:32px 0 0;font-size:clamp(16px,1.15vw,22px);line-height:1.5;font-weight:400;max-width:32em}
@@ -378,7 +378,7 @@ body.home .nav .brand{margin-left:-.07em}
 .pnote a{margin:0 0 0 12px}.tlink:hover,.pnote a:hover{background-size:0 1px}
 .nav a[aria-current="page"]{opacity:.6}
 .mdiag{height:480vh;position:relative}
-.mstage{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:42% 1fr;gap:var(--pad);padding:0 var(--pad);align-items:center;overflow:hidden}
+.mstage{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:5fr 7fr;gap:16px;padding:0 var(--pad);align-items:center;overflow:hidden}
 .mtext{position:relative;height:60vh;align-self:center}
 .mstep{position:absolute;left:0;top:0;right:8vw;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1);pointer-events:none}
 .mstep.on{opacity:1;transform:none;pointer-events:auto}
@@ -403,12 +403,12 @@ body.home .nav .brand{margin-left:-.07em}
 /* Round 9: Motto-style statement rows, method tile, programme cards */
 .bel2{padding:12vw var(--pad) 4vw}
 .bel2 .sec-title{margin:0 0 9vw}
-.brow{display:grid;grid-template-columns:42% 1fr;gap:var(--pad);padding:3.4vw 0 7vw;border-top:1px solid var(--fog);margin:0 calc(var(--pad)*-1);padding-left:var(--pad);padding-right:var(--pad)}
+.brow{display:grid;grid-template-columns:5fr 7fr;gap:16px;padding:3.4vw 0 7vw;border-top:1px solid var(--fog);margin:0 calc(var(--pad)*-1);padding-left:var(--pad);padding-right:var(--pad)}
 .bl{display:flex;gap:2.4vw;font-size:clamp(14px,0.95vw,18px);font-weight:500}.bl span:last-child{opacity:.72}
 .br h3{margin:0;max-width:17em;font-size:clamp(24px,3.24vw,62px);line-height:1.12;font-weight:600;letter-spacing:-.012em}
 .br p{margin:3vw 0 0;max-width:30em;font-size:clamp(16px,1.2vw,23px);line-height:1.5;font-weight:400}
 .how2{padding:9vw var(--pad) 8vw;border-top:1px solid var(--fog)}
-.hgrid{display:grid;grid-template-columns:42% 1fr;gap:var(--pad);align-items:stretch}
+.hgrid{display:grid;grid-template-columns:5fr 7fr;gap:16px;align-items:stretch}
 .hm{display:flex;flex-direction:column;justify-content:space-between;gap:48px}
 .hm .cap{font-size:clamp(14px,0.95vw,18px);font-weight:500}
 .hm h2{margin:0;max-width:11em;font-size:clamp(30px,4.32vw,83px);line-height:1.05;font-weight:600;letter-spacing:-.016em}
@@ -451,7 +451,7 @@ body.home .nav .brand{margin-left:-.07em}
 .unlock .field .k{font-size:clamp(14px,1vw,19px);font-weight:500;margin:0 0 2.4vw;display:flex;align-items:center;gap:.8em}
 .unlock .field .k::before{content:"";width:2.4vw;height:1px;background:currentColor;opacity:.6}
 .unlock .field .big{max-width:13.5em;font-size:clamp(34px,6.05vw,116px);font-weight:600;line-height:1.02;letter-spacing:-.018em}
-.unlock .field .lb{display:grid;grid-template-columns:42% 1fr;gap:var(--pad);margin-top:5vw;padding-top:1.6vw;border-top:1px solid var(--fog);pointer-events:auto}
+.unlock .field .lb{display:grid;grid-template-columns:5fr 7fr;gap:16px;margin-top:5vw;padding-top:1.6vw;border-top:1px solid var(--fog);pointer-events:auto}
 .unlock .field .aud{margin:0;max-width:20em;font-size:clamp(16px,1.35vw,26px);line-height:1.4;font-weight:500}
 .unlock .field .r2{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 .unlock .field .r2 .cap{font-size:clamp(14px,0.95vw,18px);font-weight:500;opacity:.55}
@@ -852,7 +852,7 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 /* Round 22: programme page template */
 .pr .meta2{margin:6px 0 0;font-size:clamp(14px,.95vw,17px);color:var(--sand)}
 .pr-c{text-decoration:none}
-.pg-fit,.pg-acc,.pg-fine,.pg-next,.pg-work{display:grid;grid-template-columns:42% 1fr;gap:var(--pad);padding:clamp(56px,7vw,128px) var(--pad);border-top:1px solid var(--fog)}
+.pg-fit,.pg-acc,.pg-fine,.pg-next,.pg-work{display:grid;grid-template-columns:5fr 7fr;gap:16px;padding:clamp(56px,7vw,128px) var(--pad);border-top:1px solid var(--fog)}
 .pg-fit .cap,.pg-acc .cap,.pg-fine .cap,.pg-next .cap,.pg-work .cap{font-size:clamp(14px,.95vw,18px);font-weight:500}
 .pg-fit h2,.pg-next h2{margin:0;font-family:var(--font-display);font-weight:500;font-size:clamp(30px,3.6vw,68px);line-height:1.05;letter-spacing:-.022em;max-width:15em}
 .pg-fit .fp,.pg-next .r>p{margin:clamp(24px,2.4vw,40px) 0 0;max-width:32em;font-size:clamp(16px,1.3vw,24px);line-height:1.45;color:var(--castle)}
@@ -984,7 +984,7 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .cta2 input,.cta2 textarea{border-bottom-color:var(--sand-l)}
 .lc-nav li button{all:unset;box-sizing:border-box;display:flex;gap:16px;width:100%;cursor:pointer;color:inherit;font:inherit}.lc-nav li button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 /* Round 10: outcome section matches the diagnosis rows (same grid, label and headline scale) */
-.oc{grid-template-columns:42% 1fr}
+.oc{grid-template-columns:5fr 7fr}
 .oc-lab{font-size:clamp(14px,0.95vw,18px);font-weight:500}
 .oc-h{font-size:clamp(24px,3.24vw,62px);line-height:1.12;font-weight:600;letter-spacing:-.012em;max-width:17em}
 .oc-p{font-size:clamp(16px,1.2vw,23px);line-height:1.5;max-width:30em}
@@ -997,9 +997,9 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .foot .soc a:hover{text-decoration:none}
 .cta2 .foot span.soc{color:#f2f2f2}
 @media(min-width:700px) and (max-width:991px){
-.brow{grid-template-columns:42% 1fr;gap:var(--pad)}.brow{padding-top:3.4vw;padding-bottom:7vw}
+.brow{grid-template-columns:5fr 7fr;gap:16px}.brow{padding-top:3.4vw;padding-bottom:7vw}
 .bl{gap:2.4vw}.br h3{font-size:clamp(20px,3.24vw,62px)}.br p{margin-top:3vw;font-size:clamp(16px,1.5vw,23px)}
-.oc{grid-template-columns:42% 1fr;gap:var(--pad)}.oc-h{font-size:clamp(20px,3.24vw,62px)}.oc-p,.oc-proof p{font-size:clamp(16px,1.5vw,23px)}
+.oc{grid-template-columns:5fr 7fr;gap:16px}.oc-h{font-size:clamp(20px,3.24vw,62px)}.oc-p,.oc-proof p{font-size:clamp(16px,1.5vw,23px)}
 }
 
 /* Round 12: the remaining two and three column layouts hold until 700px; type scales with the viewport in between */
@@ -1056,3 +1056,10 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 .proj{margin-inline:calc(var(--bleed) - var(--pad))}
 @media(max-width:699px){.cs .vtx h2,.vtx .vbody{grid-column:1/-1}}
 @media(max-width:991px){.rtx{grid-column:auto}}
+
+/* Round 22: headlines and text fill each line before breaking (Motto wraps greedily); left label 5 of 12 columns, text 6 of 12 */
+h1,h2,h3,h4,p,li,.big,.sec-title,.k,.hc,.rtx h2,.cs .vtx h2,.cs .vtx p,.oc-h,.br h3,.pg-fit h2,.pg-next h2,.sv-lead p,.hm h2,.tp p,.pr .st{text-wrap:wrap}
+.br h3,.oc-h,.svr .st,.sv-state .big,.sv-lead p,.pg-fit h2,.pg-next h2,.pr .st{max-width:none}
+.bigword{margin-left:0}
+.idea{left:var(--pad)}.toggle{right:var(--pad)}
+@media(max-width:767px){.idea{left:12px}.toggle{right:12px}}

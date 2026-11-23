@@ -1033,3 +1033,9 @@ body.home .nav.is-solid:not(.on-dark){mix-blend-mode:normal;color:var(--ink);bac
 
 /* Round 17: body text 16px, labels 14px, one text colour. Stacked small-screen tab meta wraps instead of overflowing */
 @media(max-width:480px){.tl button{flex-wrap:wrap}.tl button em{white-space:normal;margin-left:0;flex-basis:100%}}
+
+/* Round 18: case-study details, lists and paragraphs share one readable size */
+.det dd,.did li,.cs .vtx p,.cs .vtx .vbody p{font-size:clamp(17px,1.35vw,24px);line-height:1.45}
+.det dt,.rtx .bt,.vtx .bt{font-size:clamp(14px,1.05vw,17px)}
+.det>div,.did li{padding:clamp(14px,1.2vw,20px) 0}
+@media(max-width:699px){.cs .vtx p{font-size:17px}}

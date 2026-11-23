@@ -1063,3 +1063,8 @@ h1,h2,h3,h4,p,li,.big,.sec-title,.k,.hc,.rtx h2,.cs .vtx h2,.cs .vtx p,.oc-h,.br
 .bigword{margin-left:0}
 .idea{left:var(--pad)}.toggle{right:var(--pad)}
 @media(max-width:767px){.idea{left:12px}.toggle{right:12px}}
+
+/* Round 23: every floating pill sits on the page margin, left and right */
+.filter,.idea{left:var(--pad)}
+.toggle,.work-tg{right:var(--pad)}
+@media(max-width:767px){.idea{left:var(--pad);width:calc(100vw - 2*var(--pad) - 150px)}.toggle,.work-tg{right:var(--pad)}}

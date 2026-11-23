@@ -1073,3 +1073,11 @@ h1,h2,h3,h4,p,li,.big,.sec-title,.k,.hc,.rtx h2,.cs .vtx h2,.cs .vtx p,.oc-h,.br
 .pill,.idea .bar,.filter .bar{box-shadow:0 2px 10px rgba(0,0,0,.05),inset 0 0 0 1px rgba(255,255,255,.5)}
 .idea .card-in,.idea .card-open,.filter .menu{box-shadow:0 6px 24px rgba(0,0,0,.07),inset 0 0 0 1px rgba(255,255,255,.5)}
 .cur{box-shadow:0 2px 10px rgba(0,0,0,.07)}
+
+/* Round 25: pill containers carry no outline, hero fits margin to margin, square mockups, whole bottle */
+.pill.filter,.pill.idea,.filter,.idea{box-shadow:none}
+@media(min-width:768px){.h-hero h1{font-size:calc((100vw - 2*var(--pad))/8.2)}}
+.h-hero .ln{overflow:visible;clip-path:inset(0 -3vw)}
+.h-hero .l2 .w{flex:none}
+.ph,.cover img,.gl figure{border-radius:0}
+.ph img[src$="sbt-bottle.webp"]{object-position:50% 88%}

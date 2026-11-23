@@ -100,9 +100,9 @@
     function panelH(){return Math.min((W-2*pad)/1.63,H-96)}
     var idleO=1;
     function draw(p){
-      var e=ease(Math.min(1,Math.max(0,(p-0.14)/0.71)));
+      var e=ease(Math.min(1,Math.max(0,(p-0.42)/0.5)));
       var o=p<0.14?1-0.93*Math.sin(Math.PI*p/0.14):1;o=Math.min(o,idleO);
-      var ph=panelH(),inset=1-p,m=(H-ph)/2;
+      var ph=panelH(),inset=1-ease(Math.min(1,p/0.4)),m=(H-ph)/2;
       var x0=pad*inset,y0=m*inset,y1=H-m*inset;
       var mob=W<768,cx=W/2,cy=(y0+y1)/2;
       var r0=Math.max(9,W*(mob?0.032:0.0125));
@@ -114,9 +114,9 @@
       dark.setAttribute('d',d);lensP.setAttribute('d',lens);
       iris.setAttribute('cx',cx);iris.setAttribute('cy',cy);iris.setAttribute('r',ri);
       glint.setAttribute('cx',cx-ri*0.32);glint.setAttribute('cy',cy-ri*0.32);glint.setAttribute('r',ri*0.17);
-      var iv=Math.min(1,Math.max(0,(p-0.2)/0.3));irisG.style.opacity=String(1-iv*iv*(3-2*iv));
+      var iv=Math.min(1,Math.max(0,(p-0.45)/0.3));irisG.style.opacity=String(1-iv*iv*(3-2*iv));
       cr.setAttribute('x',x0);cr.setAttribute('y',y0);cr.setAttribute('width',Math.max(0,W-2*x0));cr.setAttribute('height',Math.max(0,y1-y0));
-      if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.3)/.3)));
+      if(fld)fld.style.opacity=String(Math.min(1,Math.max(0,(p-.62)/.28)));
       if(cap){cap.style.opacity=String(Math.max(0,1-p*7));cap.style.transform='translateY('+Math.max(0,y0-(mob?32:40)-capH)+'px)'}
     }
     function measure(){pad=window.innerWidth<768?16:Math.min(120,Math.max(20,window.innerWidth*0.049));

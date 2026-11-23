@@ -1068,3 +1068,8 @@ h1,h2,h3,h4,p,li,.big,.sec-title,.k,.hc,.rtx h2,.cs .vtx h2,.cs .vtx p,.oc-h,.br
 .filter,.idea{left:var(--pad)}
 .toggle,.work-tg{right:var(--pad)}
 @media(max-width:767px){.idea{left:var(--pad);width:calc(100vw - 2*var(--pad) - 150px)}.toggle,.work-tg{right:var(--pad)}}
+
+/* Round 24: softer shadows on pills, open card and cursor circle */
+.pill,.idea .bar,.filter .bar{box-shadow:0 2px 10px rgba(0,0,0,.05),inset 0 0 0 1px rgba(255,255,255,.5)}
+.idea .card-in,.idea .card-open,.filter .menu{box-shadow:0 6px 24px rgba(0,0,0,.07),inset 0 0 0 1px rgba(255,255,255,.5)}
+.cur{box-shadow:0 2px 10px rgba(0,0,0,.07)}

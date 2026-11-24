@@ -20,7 +20,7 @@
     window.addEventListener('resize',place);
     if(document.fonts&&document.fonts.ready)document.fonts.ready.then(place);
     // grid: arrow follows cursor
-    document.querySelectorAll('.card').forEach(function(c){var a=c.querySelector('.arrow'),w=c.querySelector('.imgw');
+    document.querySelectorAll('a.card').forEach(function(c){var a=c.querySelector('.arrow'),w=c.querySelector('.imgw');
       w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();a.style.left=(e.clientX-r.left)+'px';a.style.top=(e.clientY-r.top)+'px'})});
     // explore: depth drift with the pointer
     var ex=document.querySelector('.explore'),items=[].slice.call(ex.querySelectorAll('a')),tx=0,ty=0,cx=0,cy=0,run=false;

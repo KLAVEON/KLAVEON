@@ -1081,3 +1081,23 @@ h1,h2,h3,h4,p,li,.big,.sec-title,.k,.hc,.rtx h2,.cs .vtx h2,.cs .vtx p,.oc-h,.br
 .h-hero .l2 .w{flex:none}
 .ph,.cover img,.gl figure{border-radius:0}
 .ph img[src$="sbt-bottle.webp"]{object-position:50% 88%}
+
+/* Round 26: secondary margin for selected work (inside the page margin, outside full-bleed media) */
+:root{--gutter2:clamp(16px,1.78vw,40px)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px var(--gutter2);margin:56px calc(var(--gutter2) - var(--pad)) 0}
+.pgrid .proj{margin:0}
+.pgrid .proj .im{aspect-ratio:1376/984;background:var(--fog)}
+.pgrid .proj.is-ph .im{background:linear-gradient(160deg,#E7E4E1,#D9D5D2)}
+.pgrid .pm{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-top:16px;font-size:clamp(16px,1.2vw,22px);line-height:1.25;letter-spacing:-.01em}
+.pgrid .pm .l{display:block}.pgrid .pm .name,.pgrid .pm .ind{display:block}
+.pgrid .pm .cat{white-space:nowrap}
+.pgrid .proj.is-ph{cursor:default}.pgrid .proj.is-ph:hover img{transform:none}
+.work .grid,.grid{padding-inline:var(--gutter2)}
+.card .imgw{aspect-ratio:1376/984;background:var(--fog)}
+.card .imgw img{width:100%;height:100%;object-fit:cover}
+.card.is-ph{cursor:default}.card.is-ph .imgw{background:linear-gradient(160deg,#E7E4E1,#D9D5D2)}
+.lst li a:not([href]){cursor:default}
+@media(max-width:767px){.pgrid{grid-template-columns:1fr;margin-top:40px}}
+.card .imgw{border-radius:0}
+.card .meta .cat{text-transform:none;font-size:inherit;letter-spacing:-.01em}
+.card .meta .cat,.card .meta .name,.card .meta .sub2{font-size:clamp(16px,1.2vw,22px)}

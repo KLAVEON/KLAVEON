@@ -155,7 +155,7 @@
     if(cur&&window.matchMedia('(hover: hover)').matches){
       var place=function(){mq=false;cur.style.setProperty('--cx',mx+'px');cur.style.setProperty('--cy',my+'px')};
       document.querySelectorAll('[data-cur]').forEach(function(el){
-        el.addEventListener('mouseenter',function(e){mx=e.clientX;my=e.clientY;place();var l=el.getAttribute('data-cur');if(l==='arrow'){cur.innerHTML='<svg viewBox="0 0 32 32" width="36" height="36" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M5 16h21M18 8l8 8-8 8"/></svg>'}else{cur.textContent=l}cur.classList.add('on')});
+        el.addEventListener('mouseenter',function(e){mx=e.clientX;my=e.clientY;place();var l=el.getAttribute('data-cur');if(l==='arrow'){cur.innerHTML='<svg viewBox="0 0 32 32" width="36" height="36" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"><path d="M5 16h21M18 8l8 8-8 8"/></svg>'}else{cur.textContent=l}cur.classList.add('on')});
         el.addEventListener('mouseleave',function(){cur.classList.remove('on')});
         el.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;if(!mq){mq=true;requestAnimationFrame(place)}},{passive:true});
       });

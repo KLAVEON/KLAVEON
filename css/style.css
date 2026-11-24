@@ -1101,3 +1101,12 @@ h1,h2,h3,h4,p,li,.big,.sec-title,.k,.hc,.rtx h2,.cs .vtx h2,.cs .vtx p,.oc-h,.br
 .card .imgw{border-radius:0}
 .card .meta .cat{text-transform:none;font-size:inherit;letter-spacing:-.01em}
 .card .meta .cat,.card .meta .name,.card .meta .sub2{font-size:clamp(16px,1.2vw,22px)}
+
+/* Round 27: square project images, arrow only over the image, footer links with hover line */
+.pgrid .proj .im,.card .imgw{aspect-ratio:1/1}
+.card:hover .arrow{opacity:0;transform:scale(.4)}
+.card .imgw:hover .arrow{opacity:1;transform:scale(1)}
+.cur{transition:opacity .2s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.foot .soc a{text-decoration:none;position:relative}
+.foot .soc a::after{content:"";position:absolute;left:0;right:0;bottom:-.35em;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.foot .soc a:hover::after,.foot .soc a:focus-visible::after{transform:scaleX(1)}

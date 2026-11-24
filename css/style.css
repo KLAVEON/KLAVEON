@@ -1110,3 +1110,7 @@ h1,h2,h3,h4,p,li,.big,.sec-title,.k,.hc,.rtx h2,.cs .vtx h2,.cs .vtx p,.oc-h,.br
 .foot .soc a{text-decoration:none;position:relative}
 .foot .soc a::after{content:"";position:absolute;left:0;right:0;bottom:-.35em;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .foot .soc a:hover::after,.foot .soc a:focus-visible::after{transform:scaleX(1)}
+
+/* Round 28: one right-column line (5fr 7fr, 16px gap) for the outcome, tabs and programme blocks */
+.oc,.tabs{column-gap:16px}
+@media(max-width:699px){.tabs{row-gap:28px}}
